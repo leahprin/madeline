@@ -5,6 +5,12 @@
     }
 }
 
+@mixin small-tablet {
+    @media (min-width: $screen-phone) and (max-width: 991px) {
+        @content;
+    }
+}
+
 @mixin tablet {
     @media (min-width: $screen-phone) and (max-width: $screen-desktop) {
         @content;
@@ -72,6 +78,11 @@
     }
 }
 
+.articles__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .col {
     &-left {
         float:left;
@@ -105,50 +116,55 @@
 
     &-quarter,
     &-quarter-short {
-        @include make-sm-column(6);
-        @include make-md-column(3);
+        flex: 1 0 280px;
+        @include tablet {
+            flex: 1 0 308px;
+        }
+        @include tablet {
+            flex: 1 0 308px;
+        }
+        @include phone {
+            flex: 1 0 308px;
+        }
     }
     &-third,
     &-third-short {
-        @include make-sm-column(12);
-        @include make-md-column(4);
+        flex: 1 0 375px;
+        @include tablet {
+            flex: 1 0 308px;
+        }
+        @include phone {
+            flex: 1 0 308px;
+        }
     }
     &-half {
-        @include make-sm-column(12);
-        @include make-md-column(6);
+        flex: 1 0 50%;
+        @include small-tablet {
+            flex: 1 0 308px;
+        }
+        @include phone {
+            flex: 1 0 308px;
+        }
     }
     &-two-thirds,
     &-two-thirds-short {
-        @include make-sm-column(12);
-        @include make-md-column(8);
+        flex: 1 0 66.66%;
     }
     &-three-quarters {
-        @include make-sm-column(12);
-        @include make-md-column(9);
+        flex: 1 0 75%;
     }
     &-full {
-        @include make-sm-column(12);
+        flex: 1 0 100%;
     }
 }
 
-/* Comman scss section */
-.page_section {
-    @include padding(113px 0 0 0);
-    
-    @media screen and (max-width:767px) {
-        @include padding(62px 0 0 0);
-    }
-    @media (min-width: 768px) and (max-width: 1180px) {
-        @include padding(62px 0 0 0);
-    }
-}
 .col-centered {
     float:none;
     margin-left:auto;
     margin-right:auto;
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 1180px) {
     .container {
         width:98%;
         margin-left:auto;

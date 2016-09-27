@@ -4,7 +4,7 @@ $dark-color:      #000000;
 $base-color:      #404040;
 $grey:			  #808080;
 
-$highlight-color: #15b999;
+$highlight-color: #36647E;
 $quote-color:     #662d91;
 $hover-color:     #4FE8C4;
 $follow-color:    #00a651;
@@ -13,6 +13,7 @@ $slide-color:     #0076a3;
 $blue:            #46a5fc;
 $transparent:     rgba(0,0,0,0);
 $border-color:    #e0e0e0;
+$placeholder:     rgb(153, 153, 153);
 
 $error-color:     #e73d4a;
 $success-color:   #4FE8C4;
@@ -57,9 +58,9 @@ $screen-md: 1180px; // Desktop
 $screen-lg: 1600px; // Large desktop
 
 // Font
-$heading-font-family: "Proxima Nova", Helvetica, Arial, sans-serif !default;
-$base-font-family:  	"Gotham Rounded", Helvetica, Arial, sans-serif !default;
-$text-font-family: 	"Proxima Nova", Helvetica, Arial, sans-serif !default;
+$heading-font-family: "Droid Serif", Helvetica, Arial, sans-serif !default;
+$base-font-family:  	"Open Sans", Helvetica, Arial, sans-serif !default;
+$text-font-family: 	"Open Sans", Helvetica, Arial, sans-serif !default;
 $iconfont:				FontAwesome !default;
 
 // Font Size

@@ -2,29 +2,29 @@
   outline: none;
 }
 ::selection {
-  background: $hover-color;
+  background: $highlight-color;
   color: $light-color;
 }
 ::-moz-selection {
-  background: $hover-color;
+  background: $highlight-color;
   color: $light-color;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: $light-color;
+    color: $placeholder;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color: $light-color;
+   color: $placeholder;
    opacity: 1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color: $light-color;
+   color: $placeholder;
    opacity: 1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: $light-color;
+   color: $placeholder;
 }
 :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color: $light-color;
+  color: $placeholder;
 }
 
 * {
@@ -38,7 +38,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 html {
 }
 body {
-  background-color: $gray-color;
+  background-color: $white;
   color: $base-color;
   font-family: $base-font-family;
   font-size: 14px;

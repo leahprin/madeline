@@ -1,25 +1,28 @@
 .col-half {
     .card {
-        height:400px;
 
         &__no-image {
             border-width:0px;      
         }
 
         &__heading {
-            height:90px;
+            max-height:300px;
             overflow:hidden;
             @include card_heading3;
-
+            font-size: 25px;
+            letter-spacing: -0.35px;
+            line-height: 30px;
             @include phone {
                 @include card_heading4;
+                font-size: 25px;
+                letter-spacing: -0.35px;
+                line-height: 30px;
                 width:100%;
             }
         }
         
         &__text {
-            height:90px;
-            overflow:hidden;
+            display: none;
         }
         
         &__caption {
@@ -32,10 +35,8 @@
         }
 
         @include phone {
-            height:auto;
         }
         @include tablet {
-            height:auto;
         }
 
         &--light {
@@ -69,7 +70,6 @@
 
         &.card_social {
             .card__heading, .card__tag, .card__icon-social {
-                display:none;
             }
         }
 

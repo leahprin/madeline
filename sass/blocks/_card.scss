@@ -1,11 +1,10 @@
 .card {
-    border-top-style:solid;
-    border-top-width:6px;
     background-color:$light-color;
-    display:table;
     width:100%;
-    margin-bottom:20px;
+    margin-bottom:30px;
+    height: 470px;
     position:relative;
+    display: flex;
     @include phone {
         margin-top:66px;
     }
@@ -18,6 +17,13 @@
             display:block;
         }
     }
+    &__read-more {
+        opacity: 0.69;
+        font-weight: 600;
+        font-size: 13px;
+        color: #FFFFFF;
+        letter-spacing: 0px;
+    }
     &__image {
         background-color:$gray;
         background-position:50%;
@@ -26,12 +32,12 @@
         border-color:$highlight-color;
         border-width:0px;
         border-style:solid;
-        display:table-cell;
-        position:relative;
-        width:50%;
+        display: flex;
+        position: relative;
+        width: 100%;
+        align-items: flex-end;
+        height: 100%;
         @include phone {
-            display:block;
-            height:180px;
             width:100%;
             border-right:none;
             border-bottom-width:6px;
@@ -50,29 +56,27 @@
         padding:20px;
         position:relative;
         z-index:100;
+        text-align: center;
+        margin: 0 auto;
+        color: white;
         vertical-align:middle;
         @include phone {
             display:block;
+            padding-bottom: 40px!important;
         }
     }
     &__category {
-        color:$highlight-color;
-        font-size:12px;
-        font-family:$heading-font-family;
-        font-weight:bold;
-        letter-spacing:0.5px;
+        font-weight: 600;
+        font-size: 13px;
+        color: #FFFFFF!important;
+        letter-spacing: 0.21px;
+        font-family:$base-font-family;
         line-height:16px;
-        text-transform:uppercase;
-        &:after {
-            background-color:$highlight-color;
-            border-radius:4px;
-            content:"";
-            display:block;
-            height:4px;
-            margin-bottom:30px;
-            margin-top:5px;
-            width:24px;
-        }
+        padding: 3px 11px 4px;
+        border-radius: 39px;
+        background-color: $highlight-color;
+        display: inline-block;
+        margin-bottom: 25px;
         @include phone {
             &:after {
                 margin-bottom:18px;
@@ -474,7 +478,6 @@
 .col-third, .col-two-thirds, .col-quarter {
     .card {
         .card__content {
-            height:215px;
             position:relative;
             vertical-align:top;
             .card__caption {
@@ -507,7 +510,6 @@
 
         &.withImage__content {
             .card__content {
-                height:264px;
             }
         }
 
@@ -523,18 +525,12 @@
   .card {
     &.card--category {
         .card__heading {
-            max-height:110px;
+            max-height:300px;
             overflow:hidden;
-            @media screen and (max-width:480px) {
-                max-height:25px;
-            }
         }
         .card__text {
-            max-height:90px;
+            max-height:150px;
             overflow:hidden;
-            @media screen and (max-width:480px) {
-                max-height:25px;
-            }
         }
     }
     &.card__imageOnly {
@@ -615,13 +611,10 @@
 
 	.col-half {
 		.card {
-			height:400px!important;
 
 			&.withImage_content {
-				height:400px!important;
 
 				.card__content {
-					height:220px;
 				}
 				.card__caption {
 					bottom:20px;
@@ -632,10 +625,8 @@
 			}
 
 			&.card__withoutImage.card__facebook {
-				height:400px!important;
 
 				.card__content {
-					height:400px;
 				}
 			}
 		}

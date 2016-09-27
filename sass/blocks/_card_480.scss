@@ -1,14 +1,10 @@
 @media screen and (max-width:480px) {
     
     [calss*="card-"] {
-        height:auto!important;
 
         &.withImage_content {
-            height:auto!important;
 
             .card__content {
-                height:auto!important;
-                padding-bottom:0px!important;
             }
             .content-section {
                 height:auto!important;
@@ -22,11 +18,8 @@
         }
 
         &.card__withoutImage.card__facebook {
-            height:auto!important;
 
             .card__content {
-                height:auto!important;
-                padding-bottom:0px!important;
             }
             
             .content-section {
@@ -40,10 +33,7 @@
             }
         }
     }
-    
-    .col-third .card .card__content, .col-two-thirds .card .card__content, .col-quarter .card .card__content {
-        height:auto!important;
-    }
+
     .content-section {
         position:relative;
         height:auto!important;
@@ -51,12 +41,9 @@
     }
     
     .card__content {
-        height:auto!important;
-        padding-bottom:0px!important;
     }
     
     .col-half .card.withImage_content, .col-half .card {
-        height:auto!important;
     }
     .card__image, 
     .col-half .card.withImage_content .card__image,
@@ -75,10 +62,8 @@
     
     .col-third-short {
         .card.card--light .card__content {
-            height:auto!important;
         }
         .card.without__image .card__content {
-            height:auto!important;
         }
     }
     .card__caption {

@@ -11,6 +11,7 @@ var gulp = require('gulp'),
   notify = require('gulp-notify'),
   autoprefixer = require('gulp-autoprefixer'),
   sass = require('gulp-sass'),
+  sourcemaps = require('gulp-sourcemaps'),
   minifycss = require('gulp-minify-css'),
   rename = require('gulp-rename'),
   livereload = require('gulp-livereload'),
@@ -20,24 +21,27 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function(){
   gulp.src('sass/index.scss')
+    .pipe(sourcemaps.init())
     .pipe(
-    sass({
-      outputStyle: 'expanded',
-      debugInfo: true,
-      lineNumbers: true,
-      errLogToConsole: true,
-      onSuccess: function(){
-        notify().write({ message: "SCSS Compiled successfully!" });
-      },
-      onError: function(err) {
-        gutil.beep();
-        notify().write(err);
-      }
-    })
-  )
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(minifycss())
+      sass({
+        outputStyle: 'expanded',
+        debugInfo: true,
+        lineNumbers: true,
+        errLogToConsole: true,
+        onSuccess: function(){
+          notify().write({ message: "SCSS Compiled successfully!" });
+        },
+        onError: function(err) {
+          gutil.beep();
+          notify().write(err);
+        }
+      })
+    )
+
+    //.pipe(rename({ suffix: '.min' }))
+    //.pipe(minifycss())
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+    .pipe(sourcemaps.write())
     .pipe( gulp.dest('.') )
 });
 

@@ -1,6 +1,5 @@
 .col-quarter {
     .card {
-        height:400px;
         &__category {
             &:after {
                 margin-bottom:18px;
@@ -8,17 +7,24 @@
         }
         &__heading {
             @include card_heading4;
-            height:72px;
             margin-bottom:0px;
             overflow-y:hidden;
             width:100%;
+            font-size: 25px;
+            letter-spacing: -0.35px;
+            line-height: 30px;
+            @include phone {
+                @include card_heading4;
+                font-size: 25px;
+                letter-spacing: -0.35px;
+                line-height: 30px;
+                width:100%;
+            }
         }
         &__no-image {
             display:block;
         }
         &__image {
-            display:block;
-            height:136px;
             width:100%;
             border-right:none;
         }
@@ -74,7 +80,6 @@
             }
         }
         @include phone {
-            height:auto;
         }
     }
     .card--light {
@@ -158,7 +163,6 @@
             }
             
             .card__content {
-                height:264px;
             }
         }
         
