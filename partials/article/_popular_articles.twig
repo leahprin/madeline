@@ -1,0 +1,58 @@
+{% set popularArticles = _Article.getPopularArticles({ limit: 3, excludeArticleId : articleId }) %}
+{% if popularArticles|length > 0 %}
+<div class="footer">
+    <div class="container">
+        <h1 class="footer__heading">You might like...</h1>
+        <div class="row">
+            {% for article in popularArticles %}
+                <div class="col-third">
+                    {% set cardImageClass = 'without__image' %}
+                    {% if article.featuredMedia | length > 0 and article.featuredMedia['id'] is not empty %}
+                        {% set cardImageClass = 'withImage__content' %}
+                    {% endif %}
+                    {% set blogClass = article.blog['title']|replace({' ': ''}) %}
+                    <a href="{{article.url}}" class="card card--category {{cardImageClass}} caption_bottom {{blogClass | lower}}">
+                        {% set articleImage = '' %}  
+                        {% set articleImage = _Media.getMediaUrl(article.featuredMedia,500, 180, {'crop': 'fill'} ) %}
+                        <div class="card__image" style="background-image:url('{{articleImage}}');">
+                            <div class="card-icon"></div>
+                        </div>
+                        <div class="card__content">
+                            <div class="content-section">
+                                <span class="card__category">{{article.blog['title'] | capitalize}}</span>
+                                {% set articleTitle =  titleTruncateLength is defined ? article.title | truncate(titleTruncateLength) : article.title  %}
+                                <h1 class="card__heading">{{articleTitle | raw}}</h1>
+                                <p class="card__text">{{article.excerpt | raw}}</p>
+                                {% if article.keywords is not empty %}
+                                    <div class="card__tag">
+                                        {% for keyword in article.keywords | split(',') %}
+                                        <span class="card__tag-paragraph">{{keyword}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="card__caption">
+                                    <div class="card__icon-social card__social-share">
+                                        <div class="tooltip">
+                                            <div onClick="window.open('http://www.facebook.com/sharer/sharer.php?u={{article.url}}&title={{ article.title|url_encode }}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link--facebook"></div>
+                                            <div onClick="window.open('http://twitter.com/intent/tweet?status={{ article.title|url_encode }}{{article.url}}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link--twitter"></div>
+                                            <div onClick="window.open('https://plus.google.com/share?url={{article.url}}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link--google-plus"></div>
+                                        </div>
+                                    </div>
+                                    {% set avatarImg = networkData.templatePath ~ "/images/data/avatar-08.jpg" %}
+                                    {% if article.createdBy['media']['id'] is defined and article.createdBy['media']['id']  is not empty %}
+                                        {% set avatarImg = article.createdBy['media']['path'] %}    
+                                    {% endif %}
+                                    <div class="card__avatar" style="background-image:url('{{avatarImg}}');"></div>
+                                    <div class="card__author">By {{article.createdBy['displayName']}}</div>
+                                    <div class="card__date">{{article.publishedDate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
