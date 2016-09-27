@@ -1451,19 +1451,19 @@ $.resizeSections = function() {
 
 $(document).ready(function() {
   $.resizeSections();
-  $(".header__heading-link--responsive").bigSlide({
-    menu: ".side-navigation",
-    menuWidth: $(window).width() < 480 ? "280px" : "480px",
-    easyClose: true,
-    side: "left",
-    activeBtn: "close",
-    beforeOpen: function() {
-      return $(this.menu).css("visibility", "visible");
-    },
-    afterClose: function() {
-      return $(this.menu).css("visibility", "hidden");
-    }
-  });
+	$('.header__heading-link--responsive').bigSlide({
+		menu: '.side-navigation',
+		menuWidth: $(window).width() < 480 ? '260px' : '400px',
+		easyClose: true,
+		side: 'left',
+		activeBtn: 'close',
+		beforeOpen: function() {
+			return $(this.menu).css('visibility', 'visible');
+		},
+		afterClose: function() {
+			return $(this.menu).css('visibility', 'hidden');
+		}
+	});
   $(".slides").slick({
     arrows: false,
     autoplay: true,
