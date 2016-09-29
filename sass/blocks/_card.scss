@@ -37,6 +37,16 @@
         width: 100%;
         align-items: flex-end;
         height: 100%;
+				&:after {
+						content:"";
+						display:block;
+						height: 100%;
+						width: 100%;
+						background-color: rgba(0,0,0,0.34);
+						position: absolute;
+						top: 0;
+						left: 0;
+				}
         @include phone {
             width:100%;
             border-right:none;
@@ -146,7 +156,7 @@
         position:relative;
         height:40px;
         width:40px;
-        
+
 		&-follow {
             background-image:url('images/icons/follow.svg');
             background-position:50%;
@@ -159,7 +169,7 @@
             top:-6px;
             width:18px;
        }
-		
+
 		&-unfollow {
             background-image:url('images/icons/unfollow.svg');
             background-position:50%;
