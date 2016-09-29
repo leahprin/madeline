@@ -267,236 +267,96 @@
     </div>
 </header>
 
-<!--{{ set(this, 'title', _Blog.getBlogTitle()) }}-->
+<!--{{ set(this, 'title', article.title) }}-->
 
-<!--{{this.registerJs("HomeController.listing();")}}-->
+<!--{{this.registerJs("$('.playVideo').videoPlayer({});")}}-->
 
-<!--{% set limit=20 %}-->
-<!--{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}-->
-<!--{% set articles = articlesArr.articles %}-->
+<!--{% set status = 'follow' %}-->
+<!--{% set text = 'Follow +' %}-->
+<!--{% if not _User.isGuset() and _User.isUserFollowing('blog', article.blog['id'])%}-->
+<!--{% set status = 'unfollow' %}-->
+<!--{% set text = 'Following -' %}-->
+<!--{% endif %}-->
 
-<div class="page_section">
-    <div class="container">
-        <div class="row articles__container">
-            <div class="col-full">
-                <a itemscope="" itemtype="http://schema.org/NewsArticle" itemprop="url" href="http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown" class="card swap card--category cognitives  withImage__content " data-id="473" data-position="2" data-social="0" data-article-image="http://res.cloudinary.com/cognitives/image/upload/c_fill,dpr_auto,g_north,h_395,w_385/uedluifj1a9ncm1271hq" data-article-text="A Challenge to Leaders: A Day of Empathy - Tim Brown">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/1180/470/?random');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">A Challenge to Leaders: A Day of Empathy - Tim Brown</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                                <!--<div class="card__icon-social card__social-share">-->
-                                    <!--<div class="tooltip">-->
-                                        <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                                        <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                                        <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
+<!--{% set userFollowClass = 'card__avatar-follow'%}-->
+<!--{% if not _User.isGuset() and _User.isUserFollowing('user', article.createdBy['id'])%}-->
+<!--{% set userFollowClass = 'card__avatar-unfollow' %}-->
+<!--{% endif %}-->
+<div class="article article--category" itemscope itemtype="http://schema.org/NewsArticle" itemtype="http://schema.org/NewsArticle">
+    <!--<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="https://google.com/article"/>-->
+    <!--<meta itemprop="url" content="{{article.url}}">-->
+    <!--<meta itemprop="dateModified" content="{{article.updatedAt}}">-->
+    <!--<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">-->
+        <!--<meta itemprop="name" content="{{article.blog['title']}}"/>-->
+        <!--<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">-->
+            <!--<meta itemprop="url" content="{{article.blog['media']['thumb']['path']}}"/>-->
+            <!--<meta itemprop="width" content="500"/>-->
+            <!--<meta itemprop="height" content="500"/>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="article__banner">
+        <div class="slides">
+            <!--{% for media in article.media %}-->
+            <div class="slide" itemprop="image" itemscope itemtype="https://schema.org/ImageObject"  data-thumbnail="{{media.path}}" style="background-image: url('https://unsplash.it/1170/470/?random')">
+                <!--<meta itemprop="url" content="{{media.path}}">-->
+                <!--<meta itemprop="height" content="{{media.height}}">-->
+                <!--<meta itemprop="width" content="{{media.width}}">-->
+                <!--{% if media.type == 'video' %}-->
+                <!--<a href="javascript:void(0)" itemprop="video" class="video-overlay playVideo" data-type="{{media.source}}" data-media="{{media | json_encode}}"  data-videoid="{{media.videoId}}" data-title="{{article.title | raw}}">-->
+                    <!--<div class="icons">-->
+                        <!--<div class="icon"><i class="fa fa-play"></i></div>-->
+                    <!--</div>-->
+                <!--</a>-->
+                <!--{% endif %}-->
+                <!--{% if media.caption | length %}-->
+                <!--<div class="slide__content">-->
+                    <!--<p class="slide__caption">{{media.caption | raw}}</p>-->
+                <!--</div>-->
+                <!--{% endif %}-->
             </div>
-            <div class="col-third">
-                <a itemscope="" itemtype="http://schema.org/NewsArticle" itemprop="url" href="http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown" class="card swap card--category cognitives  withImage__content " data-id="473" data-position="2" data-social="0" data-article-image="http://res.cloudinary.com/cognitives/image/upload/c_fill,dpr_auto,g_north,h_395,w_385/uedluifj1a9ncm1271hq" data-article-text="A Challenge to Leaders: A Day of Empathy - Tim Brown">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/390/470/');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">On Receiving (and Truly Hearing)...</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-third">
-                <a itemscope="" itemtype="http://schema.org/NewsArticle" itemprop="url" href="http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown" class="card swap card--category cognitives  withImage__content " data-id="473" data-position="2" data-social="0" data-article-image="http://res.cloudinary.com/cognitives/image/upload/c_fill,dpr_auto,g_north,h_395,w_385/uedluifj1a9ncm1271hq" data-article-text="A Challenge to Leaders: A Day of Empathy - Tim Brown">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/390/470/?random');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">Defining Product Design: A Dispatch... </h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-third">
-                <a itemscope="" itemtype="http://schema.org/NewsArticle" itemprop="url" href="http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown" class="card swap card--category cognitives  withImage__content " data-id="473" data-position="2" data-social="0" data-article-image="http://res.cloudinary.com/cognitives/image/upload/c_fill,dpr_auto,g_north,h_395,w_385/uedluifj1a9ncm1271hq" data-article-text="A Challenge to Leaders: A Day of Empathy - Tim Brown">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/390/470/');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">The Fundraising Wisdom That Helped Our Founders Raise $18B in Follow-On Capital.</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-half">
-                <a href="https://t.co/lI0ff3AlY6" target="_blank" class="card swap card__twitter card_social  withImage__content  caption_bottom" data-id="79587" data-position="17" data-social="1" data-article-image="http://pbs.twimg.com/media/CscLxRzWYAAiwzz.jpg" data-article-text="Redhead Beauties - #tech #technology #technews https://t. co/lI0ff3AlY6 https://t. co/gOj9oZTZQX">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/585/470/');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">The Fundraising Wisdom That Helped Our Founders Raise $18B in Follow-On Capital.</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-half">
-                <a href="https://t.co/X8bwKs0j1c" target="_blank" class="card swap card__twitter card_social  withImage__content  caption_bottom" data-id="97450" data-position="16" data-social="1" data-article-image="http://pbs.twimg.com/media/CsrV252WAAAy6rC.jpg" data-article-text="The Brabus Mercedes-Benz Sprinter van has a tricked out ... - https://t. co/X8bwKs0j1c #tech #howto #technology https://t. co/JLeLL2gDWV">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/585/470/?random');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">The Fundraising Wisdom That Helped Our Founders Raise $18B in Follow-On Capital.</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-quarter">
-                <a itemscope="" itemtype="http://schema.org/NewsArticle" itemprop="url" href="http://uts.cognitives.link/@www/2016/09/09/552/defining-product-design-a-dispatch-from-airbnbs-design-chief" class="card swap card--category cognitives  withImage__content " data-id="552" data-position="4" data-social="0" data-article-image="http://res.cloudinary.com/cognitives/image/upload/c_fill,dpr_auto,g_north,h_195,w_149/q1rjtqqmrdwpvcuqf2ba" data-article-text="Defining Product Design: A Dispatch from Airbnb's Design Chief">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/300/470/?random');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">The Fundraising Wisdom That Helped Our Founders Raise $18B in Follow-On Capital.</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-quarter">
-                <a itemscope="" itemtype="http://schema.org/NewsArticle" itemprop="url" href="http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown" class="card swap card--category cognitives  withImage__content " data-id="473" data-position="2" data-social="0" data-article-image="http://res.cloudinary.com/cognitives/image/upload/c_fill,dpr_auto,g_north,h_395,w_385/uedluifj1a9ncm1271hq" data-article-text="A Challenge to Leaders: A Day of Empathy - Tim Brown">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/295/470/?random');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">The Fundraising Wisdom That Helped Our Founders Raise $18B in Follow-On Capital.</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-quarter">
-                <a itemscope="" itemtype="http://schema.org/NewsArticle" itemprop="url" href="http://uts.cognitives.link/@www/2016/09/09/555/on-receiving-and-truly-hearing-radical-candor" class="card swap card--category cognitives  withImage__content " data-id="555" data-position="3" data-social="0" data-article-image="http://res.cloudinary.com/cognitives/image/upload/c_fill,dpr_auto,g_north,h_195,w_149/lwfb5gunpdbunhuitqu3" data-article-text="On Receiving (and Truly Hearing) Radical Candor">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/305/470/?random');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">The Fundraising Wisdom That Helped Our Founders Raise $18B in Follow-On Capital.</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-quarter">
-                <a itemscope="" itemtype="http://schema.org/NewsArticle" itemprop="url" href="http://uts.cognitives.link/@www/2016/09/09/551/the-fundraising-wisdom-that-helped-our-founders-raise-18b-in-follow-on-capital" class="card swap card--category cognitives  withImage__content " data-id="551" data-position="12" data-social="0" data-article-image="http://res.cloudinary.com/cognitives/image/upload/c_fill,dpr_auto,g_north,h_395,w_385/cdois3u64hlpnfrkg9za" data-article-text="The Fundraising Wisdom That Helped Our Founders Raise $18B in Follow-On Capital">
-                    <div class="card__image" style="background-image:url('https://unsplash.it/290/470/?random');">
-                        <div class="card__content">
-                            <div class="card__category">Cognitives</div>
-                            <h1 itemprop="headline" class="card__heading" style="word-wrap: break-word;">The Fundraising Wisdom That Helped Our Founders Raise $18B in Follow-On Capital.</h1>
-                            <p itemprop="description" class="card__text" style="word-wrap: break-word;">This week, school principals across the globe are lacing up their sneakers and toting their brown bags to school as part of Shadow a Student Challenge, a program to help school principals better understand their students’ experiences. As of<span class="dotdot">...</span></p>
-                            <div class="card__read-more">Read Story</div>
-                            <!--<div class="card__caption">-->
-                            <!--<div class="card__icon-social card__social-share">-->
-                            <!--<div class="tooltip">-->
-                            <!--<div onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown&amp;title=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;facebook"></div>-->
-                            <!--<div onclick="window.open('http://twitter.com/intent/tweet?status=A%20Challenge%20to%20Leaders%3A%20A%20Day%20of%20Empathy%20-%20Tim%20Brownhttp://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;twitter"></div>-->
-                            <!--<div onclick="window.open('https://plus.google.com/share?url=http://uts.cognitives.link/@www/2016/08/30/473/a-challenge-to-leaders-a-day-of-empathy-tim-brown', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=400');" class="tooltip__link tooltip__link&#45;&#45;google-plus"></div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
-        <div class="row text-center has-margin-bottom-20">
-            <a href="javascript:void(0)" class="button loadMoreArticles"><i class="fa fa-arrow-down"></i>Load More</a>
+            <!--{% endfor %}-->
         </div>
     </div>
+
+    <div class="article__header">
+        <div class="article__category">{{article.blog['title'] | capitalize}}</div>
+        <!--{% if _User.isGuest() %}-->
+        <a href="javascript:void(0)" class="article__follow forceLoginModal">Follow +</a>
+        <!--{% else %}-->
+        <!--<a href="javascript:void(0)" class="article__follow followArticleBtn" data-guid="{{article.blog['guid']}}" data-status="{{status}}">{{text}}</a>-->
+        <!--{% endif%}-->
+        <h1 class="article__heading" itemprop="headline">{{article.title | capitalize}}</h1>
+        <div class="article__caption">
+            <!--{% set creatorImage = '' %}-->
+            <!--{% if article.createdBy['media'] | length > 0 and article.createdBy['media']['id'] is not empty %}-->
+            <!--{% set creatorImage = _Media.getMediaUrl(article.createdBy['media'], 100, 100, {crop:'thumb', radius: 'max', gravity:'face'})%}-->
+            <!--{% endif %}-->
+            <div class="card__caption">
+                <a href="#">
+                    <div class="card__avatar" style="background-image:url('https://unsplash.it/100/100/?random');">
+                        <div class="{{userFollowClass}}"></div>
+                    </div>
+                    <div class="card__author" >By <span itemprop="author">Amos Whitewolf</span></div>
+                </a>
+                <div class="card__date" itemprop="datePublished">15 June 1016</div>
+                <div class="card__read-time">5 mins</div>
+            </div>
+        </div>
+        <!--{{this.render('partials/article/_social_sharing.twig', {article: article}) | raw }}-->
+    </div>
+    <div class="container">
+        <div class="article-content-section">
+            <div class="content-area" itemprop="articleBody">
+                {{article.content | raw}}
+            </div>
+        </div>
+    </div>
+    <!--{% set network = _Network.getNetworkData() %}-->
+    <!--{% if network.thirdPartyIntegrations['disqus'] | length > 0 and network.thirdPartyIntegrations['disqus']['shortName'] != '' %}-->
+    <!--{{this.render("partials/article/_disqus_comments.twig", {disqus: network.thirdPartyIntegrations['disqus'], userId: article.userId, url:article.url, articleId: article.id}) | raw}}-->
+    <!--{% endif %}-->
 </div>
+<!--{{this.render("partials/article/_popular_articles.twig", {articleId: article.id}) | raw }}-->
 
 <footer class="footer">
     <div class="footer__container">

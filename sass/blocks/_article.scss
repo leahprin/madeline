@@ -1,16 +1,14 @@
 .article {
-    $article-width:$screen-md - 300px;
+    $article-width:1180px;
     $article-padding:100px;
     background-color:$light-color;
     padding-bottom:150px;
     &__banner {
-        background-color:$base-color;
+        background-color:$white;
         background-position:50%;
         background-repeat:no-repeat;
         background-size:cover;
-        border-bottom-style:solid;
-        border-bottom-width:6px;
-        height:600px;
+        height:470px;
         .slide {
             @include background-size(cover);
             background-position:center;
@@ -77,14 +75,14 @@
         position:relative;
         @extend .container;
         background-color:$light-color;
-        margin-top:-$article-padding;
-        padding:56px $article-padding 0px;
+        padding-top:80px;
+
         width:$article-width;
+        max-width: 800px;
 
         @include phone-to-tablet {
-            padding:20px;
+            padding:40px;
             width:100%;
-            padding-top:30px;
         }
     }
     &__follow {
@@ -227,8 +225,14 @@
 
 .article {
     &__banner {
+        .slides {
+            max-width: 1180px;
+            background-color: white;
+            margin: auto;
+        }
         .slide {
-            height:600px;
+            height:470px;
+            max-width: 1180px;
 
             .slide__caption {
                 /*display:none;*/

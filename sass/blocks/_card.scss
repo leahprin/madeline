@@ -53,7 +53,7 @@
     }
     &__content {
         display:table-cell;
-        padding:20px;
+        padding:20px 20px 40px;
         position:relative;
         z-index:100;
         text-align: center;
@@ -88,6 +88,7 @@
     }
     &__heading {
         @include card_heading3;
+        max-width: 750px;
         @include phone {
             @include card_heading4;
             width:100%;
