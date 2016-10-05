@@ -1,0 +1,108 @@
+<header class="header">
+    <div class="header__heading header__container">
+        <div class="header__heading-highlight"></div>
+
+        {#<!--{% if not  _User.isGuest() %}-->#}
+        {#<!--{% set user = _User.getUser() %}-->#}
+        <div id="header__menu">
+            <div class="profile__container">
+                <div class="profile__menu">
+                    <div class="profile__menu-image" style="background-image:url('https://unsplash.it/80');"></div>
+                    <div class="profile__menu-content">
+                        <div class="profile__menu-name">Amos Whitewolf</div>
+                        <div class="profile__menu-email">amoswhitewolf@gmail.com</div>
+                        <a href="#" class="profile__menu-button">My News</a>
+                    </div>
+                    <ul class="profile__menu-navigation">
+                        <li><a class="profile__menu-navigation-link" href="#/profile/#">Profile</a></li>
+                        <li><a class="profile__menu-navigation-link" href="http://#/user/edit-profile">Settings</a></li>
+                        <li><a class="profile__menu-navigation-link" href="#">Sign Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {#<!--{% else %}-->#}
+        {#<!--<div id="header__menu">-->#}
+        {#<!--<div class="profile__menu">-->#}
+        {#<!--<ul class="profile__menu-navigation">-->#}
+        {#<!--<li><a class="profile__menu-navigation-link" href="{{_AppHelper.getLoginUrl()}}">Sign up/Login</a></li>-->#}
+        {#<!--</ul>-->#}
+        {#<!--</div>-->#}
+        {#<!--</div>-->#}
+        {#<!--{% endif %}-->#}
+
+        <div class="header__heading-container">
+            <div class="header__heading--left">
+                {#<!--{% if networkData.logoMedia | length > 0 %}-->#}
+                <a class="header__heading-logo" href=""><img src="https://unsplash.it/225/50" /></a>
+                {#<!--{% endif %}-->#}
+            </div>
+            <div class="header__heading--right">
+                <div class="header__heading-icons">
+                    {#<!--{% set profileImage = ''%}-->#}
+                    {#<!--{% if not _User.isGuest()%}-->#}
+                    {#<!--{% set user = _User.getUser()%}-->#}
+                    {#<!--{% if user.profileMedia | length > 0 and user.profileMedia.id != '' %}-->#}
+                    {#<!--{% set profileImage = _Media.getMediaUrl(user.profileMedia, 150, 150, {radius: 'max', gravity: 'face', 'crop': 'thumb'})%}-->#}
+                    {#<!--{% endif %}-->#}
+                    {#<!--{% endif %}-->#}
+
+                    <a href="javascript:void(0)"
+                       class="header__heading-link header__heading-link--profile"
+                       id="profile">
+                        {#<!--{% if profileImage != ''%} style="background-image:url({{profileImage}})" {% endif %}-->#}
+                        {#<!--{% if _User.isGuest()%} style="background-image: none;" {% endif %}>-->#}
+                        {#<!--{% if _User.isGuest()%} Signup / Login {% endif %}-->#}
+                        <!--Signup / Login-->
+                    </a>
+
+                    <a href="javascript:void(0)" class="header__heading-link header__heading-link--responsive"></a>
+                </div>
+
+                <div class="header__heading--visible_desktop">
+                    <a href="#" class="header__heading-link" id="login">Sign In</a>
+                    <div class="header__search">
+                        <form action="#/search" method="get">
+                            <input type="text" class="header__search-text" placeholder="Search ..." name="s" value="">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__navigation-responsive">
+        Menu
+    </div>
+    <div class="header__navigation">
+        <div class="container">
+            <div class="header__navigation-row">
+                <ul class="header__navigation-list">
+                    {% set entries = craft.categories.group('channels') %}
+                    {% nav entry in entries %}
+                        <li class="header__navigation-item">
+                            <a href="{{ entry.url }}" class="header__navigation-link">
+                                {{ entry.title }}
+                            </a>
+                        </li>
+                    {% endnav %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="side-navigation">
+        <form method="get">
+            <input type="text" class="side-navigation__search" placeholder="Search" name="s">
+        </form>
+        <ul class="side-navigation__list">
+            {% set entries = craft.categories.group('channels') %}
+            {% nav entry in entries %}
+            <li class="side-navigation__item">
+                <a href="{{ entry.url }}" class="side-navigation__link">
+                    {{ entry.title }}
+                </a>
+            </li>
+            {% endnav %}
+        </ul>
+    </div>
+</header>
+

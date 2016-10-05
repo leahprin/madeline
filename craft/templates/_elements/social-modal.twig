@@ -1,0 +1,11 @@
+{% block content %}
+
+	<img src="{{ image }}" style="width: 100%">
+	<p>{{ channel }}<p>
+	<div>{{ text }}</div>
+	<p>
+		<span style="background-image: url('{{ authorImage }}'); height: 50px; width: 50px; background-size: cover; display: inline-block; border-radius: 50%;"></span>
+		<a href="{{ socialLink }}">{{ network }} @{{ author }}</a></p>
+	<p>{{ date }}</p>
+
+{% endblock %}

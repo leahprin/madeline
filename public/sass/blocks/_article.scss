@@ -1,0 +1,33 @@
+.article {
+}
+
+.DisqusCommentArea {
+    width:100%;
+    margin-top:40px;
+    display:inline-block;
+    border-top:2px solid rgba($hover-color, 0.75);
+}
+
+[class*="medium-insert-"], .article-content-section {
+    .slide__caption {
+        bottom:0px;
+        width:100%;
+        padding:15px 25px;
+
+        > p {
+            width:100%;
+            margin-bottom:0px!important;
+            font-size:($baseFontSize * 1) - 1!important;
+        }
+    }
+
+    .video {
+        .slide__caption {
+            display:none;
+        }
+    }
+}
+
+video.cloudVideo {
+    width:100%;
+}

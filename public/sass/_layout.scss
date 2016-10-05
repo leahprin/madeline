@@ -1,0 +1,66 @@
+// Base layout classes
+.container {
+    @include container-fixed($grid-gutter-width);
+    padding-left:10px;
+    padding-right:10px;
+    @include tablet {
+        width:98%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    @include desktop {
+        width:$screen-md - $grid-gutter-width;
+    }
+    @include desktop-lg {
+        width:$screen-lg - $grid-gutter-width;
+    }
+}
+
+.row {
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+
+    &-centered {
+        text-align:center;
+    }
+}
+
+.home {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    &-quarter,
+    &-quarter-short {
+        flex: 1 0 308px;
+        @include desktop {
+            flex: 1 0 280px;
+        }
+
+    }
+    &-third,
+    &-third-short {
+        flex: 1 0 308px;
+        @include desktop {
+            flex: 1 0 375px;
+        }
+    }
+    &-half {
+        flex: 1 0 308px;
+        @include desktop {
+            flex: 1 0 50%;
+        }
+    }
+    &-two-thirds,
+    &-two-thirds-short {
+        flex: 1 0 66.66%;
+    }
+    &-three-quarters {
+        flex: 1 0 75%;
+    }
+    &-full {
+        flex: 1 0 100%;
+    }
+}

@@ -1,0 +1,21 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+	<img src="{{ image }}" style="width: 100%">
+	<p>{{ channel }}<p>
+		<p>
+			<a href="/profile/{{entry.author.username}}">
+			<span style="background-image: url('{{ authorImage }}'); height: 50px; width: 50px; background-size: cover; display: inline-block; border-radius: 50%;"></span>
+			By {{ author }}
+		</a>
+	</p>
+	<h1>{{ headline }}</h1>
+	<p>{{ date }}</p>
+	<div style="font-weight: bold">{{ text }}</div>
+	{{ articleBody }}
+
+	<h3>Comments</h3>
+	{% include "_elements/disqus" %}
+
+{% endblock %}

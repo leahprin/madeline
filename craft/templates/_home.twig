@@ -1,0 +1,58 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+	{% set limit = 20 %}
+	{% set articles = craft.entries.section('posts').find() %}
+
+	<div class="home">
+		{% if articles|length > 0 %}
+			<div class="col-full">
+				{% if articles[0] is defined %}
+					{% include '_elements/card' with {article: articles[0]} %}
+				{% endif %}
+			</div>
+			{% if articles[1] is defined and articles[2] is defined and articles[3] is defined %}
+				<div class="col-third">
+					{% include '_elements/card' with {article: articles[1]} %}
+				</div>
+				<div class="col-third">
+					{% include '_elements/card' with {article: articles[2]} %}
+				</div>
+				<div class="col-third">
+					{% include '_elements/card' with {article: articles[3]} %}
+				</div>
+			{% endif %}
+			{% if articles[4] is defined and articles[5] is defined %}
+				<div class="col-half">
+					{% include '_elements/card' with {article: articles[4]} %}
+				</div>
+				<div class="col-half">
+					{% include '_elements/card' with {article: articles[5]} %}
+				</div>
+			{% endif %}
+			{% if articles[6] is defined and articles[7] is defined and articles[8] is defined and articles[9] is defined %}
+				<div class="col-quarter">
+					{% include '_elements/card' with {article: articles[6]} %}
+				</div>
+				<div class="col-quarter">
+					{% include '_elements/card' with {article: articles[7]} %}
+				</div>
+				<div class="col-quarter">
+					{% include '_elements/card' with {article: articles[8]} %}
+				</div>
+				<div class="col-quarter">
+					{% include '_elements/card' with {article: articles[9]} %}
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+
+	<div class="row ajaxArticles" data-existing-nonpinned-count="{#{{articlesArr.existingNonPinnedCount}}#}"></div>
+	<div class="row text-center has-margin-bottom-20">
+		{% if articles|length >= limit %}
+			<a href="javascript:void(0)" class="button loadMoreArticles"><i class="fa fa-arrow-down"></i>Load More</a>
+		{% endif %}
+	</div>
+
+{% endblock %}
