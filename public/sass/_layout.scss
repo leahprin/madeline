@@ -1,7 +1,7 @@
 // Base layout classes
 .container {
     @include container-fixed($grid-gutter-width);
-    display: flex;
+    display: block;
     padding: 0;
     @include tablet {
         width:98%;
@@ -20,16 +20,15 @@
     display: flex;
     margin-left: -10px;
     margin-right: -10px;
-
     &-centered {
         text-align:center;
     }
 }
 
 .home {
+    @extend .container;
     display: flex;
     flex-wrap: wrap;
-    @extend .container;
     &::before {
         display: none;
     }

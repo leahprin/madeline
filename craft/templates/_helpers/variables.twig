@@ -2,6 +2,11 @@
    VARIABLES
 	 - TODO: set these with cogs specific code
    =============== #}
+
+{% if not article is defined %}
+	{% set article = entry %}
+{% endif %}
+
 {% set text = article.text %}
 {% set channel = article.channel.first() %}
 {% if article.image.first().url is defined %}
