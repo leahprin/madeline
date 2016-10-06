@@ -1,8 +1,8 @@
 // Base layout classes
 .container {
     @include container-fixed($grid-gutter-width);
-    padding-left:10px;
-    padding-right:10px;
+    display: flex;
+    padding: 0;
     @include tablet {
         width:98%;
         margin-left:auto;
@@ -29,13 +29,20 @@
 .home {
     display: flex;
     flex-wrap: wrap;
+    @extend .container;
+    &::before {
+        display: none;
+    }
+    &::after {
+        display: none;
+    }
 }
 
 .col {
     &-quarter,
     &-quarter-short {
         flex: 1 0 308px;
-        @include desktop {
+        @include desktop-sm {
             flex: 1 0 280px;
         }
 
@@ -43,13 +50,13 @@
     &-third,
     &-third-short {
         flex: 1 0 308px;
-        @include desktop {
+        @include desktop-sm {
             flex: 1 0 375px;
         }
     }
     &-half {
         flex: 1 0 308px;
-        @include desktop {
+        @include desktop-sm {
             flex: 1 0 50%;
         }
     }

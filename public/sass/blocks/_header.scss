@@ -116,7 +116,7 @@
             @include desktop-sm {
                 padding: 35px 0 45px;
                 height: auto;
-                width: 1160px;
+                width: 1170px;
             }
             &::before, &::after {
                 content: normal;
@@ -228,6 +228,9 @@
                     @include tablet {
                         margin-right: 20px;
                         background-size: 35px;
+                    }
+                    @include desktop-sm {
+                        margin-right: 0;
                     }
                 }
             }
