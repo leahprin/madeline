@@ -7,8 +7,8 @@
 {% block content  %}
 
 <article class="{{ cardType }}">
-	<a href="{{link}}" class="card link">
-		<div class="card__content_wrap" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+	<a href="{{link}}" class="card link" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+		<div class="card__content_wrap">
 			<div class="card__content">
 				<p class="card__channel">{{ channel }}</p>
 				{% if cardType == 'social' %}
