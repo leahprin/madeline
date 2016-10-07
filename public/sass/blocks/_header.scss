@@ -56,14 +56,16 @@
             margin-right: -3px;
         }
         &-link {
-            &, &:link, &:visited, &:active, &.active {
-                color: $link-color;
-                display: inline-block;
-                font-weight: 600;
-                font-size: 18px;
-                text-transform: uppercase;
-                padding: 0 15px 10px;
-                line-height: 20px;
+            color: $link-color;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding: 0 15px 10px;
+            line-height: 20px;
+            @include transition(color 0.5 ease);
+            &:active, &.active {
+                color: #7396A5;
             }
         }
         &-selected {
@@ -105,8 +107,9 @@
             display: flex;
             position: relative;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             padding: 15px;
+
             @include tablet {
                 width: 100%;
                 padding: 15px 25px;
@@ -114,6 +117,7 @@
                 align-items: center;
             }
             @include desktop-sm {
+                align-items: flex-start;
                 padding: 35px 0 45px;
                 height: auto;
                 width: 1170px;
@@ -133,30 +137,18 @@
             order: 2;
         }
         &-logo {
-            background-position: 0% 50%;
-            background-repeat: no-repeat;
-            background-size: 100%;
             display: inline-block;
-            font-size: 14px;
             height: 65px;
-            line-height: 63px;
-            text-align: center;
-            text-transform: uppercase;
-            vertical-align: middle;
-            max-width: 167px;
             max-height: 35px;
-
-            &, &:link, &:visited, &:active {
-                color: $dark-color;
-            }
-
             @include tablet {
                 width: auto;
                 max-height:50px;
             }
-
+            @include desktop-sm {
+                max-height: 65px;
+            }
             img {
-                width: 100%;
+                height: 100%;
             }
         }
         &-menu {
@@ -264,9 +256,6 @@
         }
 
         &--left {
-            display: table-cell;
-            font-size: 0px;
-            vertical-align: middle;
             text-align: right;
             @include desktop-sm {
                 text-align: right;
@@ -274,12 +263,9 @@
         }
         &--right {
             display: flex;
-            font-size: 0px;
-            margin-top: 13px;
             text-align: right;
-            vertical-align: middle;
-            @include tablet {
-
+            @include desktop-sm {
+                align-items: flex-end;
             }
         }
         &--visible_desktop {
@@ -304,9 +290,9 @@
             font-size: 16px;
             width: 300px;
             box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,0.17);
-            height: 40px;
+            height: 48px;
             margin: 0px;
-            padding-left: 10px;
+            padding: 8px 0 8px 12px;
         }
     }
 }

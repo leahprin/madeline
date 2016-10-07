@@ -84,6 +84,7 @@
       padding-top: 8px;
       margin: auto 5px auto auto;
       text-align:center;
+      @include transition(color 0.5s ease);
       &:hover {
         color: #36647E;
       }

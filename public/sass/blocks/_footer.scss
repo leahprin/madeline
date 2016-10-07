@@ -52,6 +52,7 @@
       background-color: #4A4A4A;
       padding-top: 8px;
       margin: auto 2px;
+      @include transition(color 0.5s ease);
       @include desktop-sm {
         text-align: center;
         margin: auto auto auto 2px;
@@ -93,12 +94,13 @@
   &__right {
     @include desktop-sm {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       width: 20%;
     }
   }
 
   &__additional-links {
+    @include transition(color 0.5s ease);
     @include desktop-sm {
       text-align: right;
       display: flex;
