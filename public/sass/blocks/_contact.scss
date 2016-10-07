@@ -1,0 +1,95 @@
+.contact {
+  @extend .container;
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  &__form {
+    background: #EBECEC;
+    flex:1 0 500px;
+    height: 560px;
+    padding: 66px 0 46px;
+    text-align: center;
+    #contactMessage {
+      min-height: 100px;
+    }
+    &--control {
+      background: #FFFFFF;
+      font-size: 20px;
+      color: #A9B0BC;
+      letter-spacing: 0px;
+      line-height: 30px;
+      font-weight: 600;
+      padding:14px 25px 16px;
+      display: block;
+      border: none;
+      margin: 0 auto 20px;
+      width:75%;
+    }
+  }
+  &__submit {
+    background: #FFFFFF;
+    border: 1px solid #88D3AA;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #88D3AA;
+    letter-spacing: 1.66px;
+    font-weight: 600;
+    padding: 16px 72px;
+    margin-top: 28px;
+  }
+  &__content_wrap {
+    flex:1 0 500px;
+    height: 560px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+  }
+  &__content {
+    align-self: center;
+  }
+  &__headline {
+    margin-bottom:25px;
+  }
+  &__text {
+    margin-bottom:25px;
+    font-weight:600;
+    font-size: 24px;
+    color: #4A4A4A;
+    letter-spacing: -0.33px;
+    line-height: 34px;
+    max-width:295px;
+  }
+  &__number {
+    font-weight:400;
+    font-size: 18px;
+    color: #4A4A4A;
+    letter-spacing: 0px;
+    line-height: 30px;
+  }
+  &__address {
+    @extend .contact__number;
+    margin-bottom: 25px;
+  }
+  &__social-links {
+    .fa {
+      color: $white;
+      width: 30px;
+      display: inline-block;
+      height: 30px;
+      border-radius: 100px;
+      background-color: #4A4A4A;
+      padding-top: 8px;
+      margin: auto 5px auto auto;
+      text-align:center;
+      &:hover {
+        color: #36647E;
+      }
+    }
+  }
+  &__map {
+    width: 100%;
+  }
+}
