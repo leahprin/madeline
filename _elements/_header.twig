@@ -34,7 +34,7 @@
         <div class="header__heading-container">
             <div class="header__heading--left">
                 {#<!--{% if networkData.logoMedia | length > 0 %}-->#}
-                <a class="header__heading-logo" href=""><img src="https://unsplash.it/300/65" /></a>
+                <a class="header__heading-logo" href="/"><img src="https://unsplash.it/300/65" /></a>
                 {#<!--{% endif %}-->#}
             </div>
             <div class="header__heading--right">
@@ -77,7 +77,7 @@
         <div class="container">
             <div class="header__navigation-row">
                 <ul class="header__navigation-list">
-                    {% set entries = craft.categories.group('channels') %}
+                    {% set entries = craft.categories.group('channel') %}
                     {% nav entry in entries %}
                         <li class="header__navigation-item">
                             <a href="{{ entry.url }}" class="header__navigation-link">
@@ -85,6 +85,7 @@
                             </a>
                         </li>
                     {% endnav %}
+										<li><a href="/contact-us">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -94,15 +95,15 @@
             <input type="text" class="side-navigation__search" placeholder="Search" name="s">
         </form>
         <ul class="side-navigation__list">
-            {% set entries = craft.categories.group('channels') %}
+            {% set entries = craft.categories.group('channel') %}
             {% nav entry in entries %}
             <li class="side-navigation__item">
                 <a href="{{ entry.url }}" class="side-navigation__link">
                     {{ entry.title }}
                 </a>
             </li>
+
             {% endnav %}
         </ul>
     </div>
 </header>
-
