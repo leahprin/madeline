@@ -10,6 +10,12 @@
             }
         }
     });
+
+    $('.social a').on('click', function (e) {
+        e.preventDefault();
+        console.log(t);
+        $('#socialModal').modal();
+    })
     
     $('.forceLoginModal').loginModal({
         onLoad: function () {

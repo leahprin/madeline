@@ -6,6 +6,9 @@
     &__container {
         max-width: 770px;
         margin: 0 auto 30px;
+        @include desktop-lg {
+            max-width: 1080px;
+        }
     }
     &__channel_wrap {
         text-align: center;
@@ -80,6 +83,9 @@ div.article {
     }
     &::after {
         display: none;
+    }
+    @include desktop-sm {
+        padding:0;
     }
     img {
         width: 100%;
