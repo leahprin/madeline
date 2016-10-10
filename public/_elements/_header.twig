@@ -78,13 +78,28 @@
             <div class="header__navigation-row">
                 <ul class="header__navigation-list">
                     {% set entries = craft.categories.group('channels') %}
-                    {% nav entry in entries %}
+                    {% for i in 0..5 %}
+                    {% set entry = entries[i] %}
                         <li class="header__navigation-item">
                             <a href="{{ entry.url }}" class="header__navigation-link">
                                 {{ entry.title }}
                             </a>
                         </li>
-                    {% endnav %}
+                    {% endfor %}
+                    {% if entries[6] is defined %}
+                        <li class="header__navigation-item dropdown">
+                            <a href="{{ entry.url }}" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                More Channels <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                {% for i in 6..(entries|length - 1)%}
+                                    {% set entry = entries[i] %}
+                                    <li class=""><a href="{{ entry.url }}" class="">{{ entry.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                    {% endif %}
                 </ul>
             </div>
         </div>

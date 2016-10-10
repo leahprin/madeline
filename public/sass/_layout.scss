@@ -29,7 +29,9 @@ div.home, div.channel, div.profile {
     @extend .container;
     display: flex;
     flex-wrap: wrap;
-    padding: 0 10px;
+    @include tablet {
+        padding:0 10px;
+    }
     @include desktop-sm {
         padding:0;
     }
