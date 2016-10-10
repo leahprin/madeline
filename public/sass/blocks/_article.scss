@@ -68,14 +68,14 @@
 div.article {
     @extend .container;
     padding: 0 10px;
+    @include desktop-sm {
+        padding:0;
+    }
     &::before {
         display: none;
     }
     &::after {
         display: none;
-    }
-    @include desktop-sm {
-        padding:0;
     }
     img {
         width: 100%;
