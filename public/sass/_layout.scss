@@ -25,7 +25,7 @@
     }
 }
 
-.home, .channel {
+.home, .channel, .profile {
     @extend .container;
     display: flex;
     flex-wrap: wrap;

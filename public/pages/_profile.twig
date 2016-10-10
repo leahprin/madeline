@@ -7,20 +7,79 @@
 
 {# Then, grab the user based on the username %}#}
 {% set user = craft.users.username(username).first() %}
+	{% if user %}
+		<div class="profile">
 
+			<div class="profile__header">
+				<div class="profile__background" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+					<h1 class="profile__heading">{{user}} Posts</h1>
+				</div>
+				<div class="user-header">
+					<a href="#" class="button header_actions user-header__comments">Comments</a>
+					<div class="user-header__display">
+						<span class="user-header__image" style="background-image: url('{{ user.photoUrl }}'); background-size: cover; display: inline-block; border-radius: 50%;"></span>
+						<div class="user-header__name">{{user}}</div>
+					</div>
+					<a href="#" class="button button__follow user-header__share">Follow</a>
+				</div>
+			</div>
 
-{% if user %}
-    {% set blogPosts = craft.entries.section('posts').type('article').authorId(user.id).find() %}
-		<h1>
-			<span style="background-image: url('{{ user.photoUrl }}'); height: 50px; width: 50px; background-size: cover; display: inline-block; border-radius: 50%;"></span>
-			{{user}} Posts
-		</h1>
+			{% set articles = craft.entries.section('posts').type('article').authorId(user.id).find() %}
 
-    <p>Found: {{ blogPosts|length }} articles.</p>
+			{% if articles|length > 0 %}
+				{% if articles[0] is defined %}
+					<div class="col-full">
+						{% include '_elements/card' with {article: articles[0]} %}
+					</div>
+				{% endif %}
+				{% if articles[1] is defined %}
+					<div class="col-third">
+						{% include '_elements/card' with {article: articles[1]} %}
+					</div>
+				{% endif %}
+				{% if articles[2] is defined %}
+					<div class="col-third">
+						{% include '_elements/card' with {article: articles[2]} %}
+					</div>
+				{% endif %}
+				{% if articles[3] is defined %}
+					<div class="col-third">
+						{% include '_elements/card' with {article: articles[3]} %}
+					</div>
+				{% endif %}
+				{% if articles[4] is defined %}
+					<div class="col-half">
+						{% include '_elements/card' with {article: articles[4]} %}
+					</div>
+				{% endif %}
+				{% if articles[5] is defined %}
+					<div class="col-half">
+						{% include '_elements/card' with {article: articles[5]} %}
+					</div>
+				{% endif %}
+				{% if articles[6] is defined %}
+					<div class="col-quarter">
+						{% include '_elements/card' with {article: articles[6]} %}
+					</div>
+				{% endif %}
+				{% if articles[7] is defined %}
+					<div class="col-quarter">
+						{% include '_elements/card' with {article: articles[7]} %}
+					</div>
+				{% endif %}
+				{% if articles[8] is defined %}
+					<div class="col-quarter">
+						{% include '_elements/card' with {article: articles[8]} %}
+					</div>
+				{% endif %}
+				{% if articles[9] is defined %}
+					<div class="col-quarter">
+						{% include '_elements/card' with {article: articles[9]} %}
+					</div>
+				{% endif %}
+			{% endif %}
+		</div>
 
-		{% for entry in blogPosts %}
-		    {% include '_elements/card' %}
-		{% endfor %}
 {% endif %}
 
 {% endblock %}
