@@ -101,7 +101,6 @@ div.article {
         bottom: 15px;
     }
     &__channel {
-        background: #7396A5;
         border-radius: 39px;
         font-weight: 600;
         font-size: 13px;
@@ -109,7 +108,9 @@ div.article {
         margin-bottom: 15px;
         display: inline-block;
         padding: 3px 15px;
-        color: $white;
+        background-color: #fff;
+        border: 1px solid #456576;
+        color: #456576;
         @include tablet {
             margin-bottom: 60px;
         }
@@ -169,6 +170,25 @@ div.article {
         line-height: 34px!important;;
         margin-bottom: 30px!important;;
     }
+}
+
+.comments-header {
+    margin-bottom:10px;
+}
+
+.additional-articles__header {
+    margin: 56px auto!important;
+}
+
+.show-comments {
+    background: #FFFFFF;
+    border: 1px solid #7396A5;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #7396A5;
+    letter-spacing: 0px;
+    padding: 3px 15px 4px;
 }
 
 .profile__user_image {

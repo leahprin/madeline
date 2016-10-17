@@ -15,13 +15,6 @@
     border-color: $color;
 
     .card {
-      &__channel {
-        background-color: $color;
-
-        &:after {
-          background-color: $color;
-        }
-      }
       &__no-image .card__overlay {
         background: $color;
       }
@@ -41,13 +34,6 @@
         }
       }
     }
-    &.card__no-image .card__channel {
-      color: $color;
-    }
-  }
-
-  .social-modal__channel--#{$name} {
-    background-color: $color;
   }
 
   .card__follow.card--#{$name} {
@@ -60,12 +46,6 @@
     .article {
       &__banner {
         border-color: $color;
-      }
-      &__channel {
-        background: $color;
-        &:after{
-          background: $color;
-        }
       }
       &__follow {
         background-color: $color;
