@@ -6,25 +6,29 @@
 
 {% block content  %}
 
-<article class="{{ cardType }}">
-	<a href="{{link}}" class="card link" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
-		<div class="card__content_wrap">
-			<div class="card__content">
-				<p class="card__channel">{{ channel }}</p>
-				{% if cardType == 'social' %}
-					<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
-					<p class="card__author">{{ network }} @{{ author }}</p>
-				{% elseif cardType == 'article' %}
-					<h3 class="card__headline">{{ headline }}</h3>
-					<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
-					<p class="card__author">By {{ author }}</p>
-				{% endif %}
-				<p class="card__read-more">By {{ author }}</p>
+	<article class="{{ cardType }}">
+		<a href="{{link}}" class="card card--{{ channel|lower }} {% if image is not defined %}card__no-image{% endif %} link" {% if image is defined %}style="background-image: url({{ image }}); background-size: cover;background-position: 50% 50%;"{% endif %}>
+			<div class="card__overlay">
+				<div class="card__content_wrap">
+					<div class="card__content">
+						<div class="card__channel-wrap">
+							<h5 class="card__channel">{{ channel }}</h5>
+						</div>
+						{% if cardType == 'social' %}
+							<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
+							<p class="card__author">{{ network }} @{{ author }}</p>
+						{% elseif cardType == 'article' %}
+							<h3 class="card__headline">{{ headline }}</h3>
+							<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
+							<p class="card__author">By {{ author }}</p>
+						{% endif %}
+						<p class="card__read-more">By {{ author }}</p>
+					</div>
+					{% if image is defined %}
+						<div class="card__image" style="background-image: url('{{ image }}'); background-size: cover; background-position: 50% 50%;"></div>
+					{% endif %}
+				</div>
 			</div>
-			{% if image is defined %}
-			<div class="card__image" style="background-image: url('{{ image }}'); background-size: cover;"></div>
-			{% endif %}
-		</div>
-	</a>
-</article>
+		</a>
+	</article>
 {% endblock %}

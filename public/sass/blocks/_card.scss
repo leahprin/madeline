@@ -1,13 +1,10 @@
 .card {
   height: 470px;
   display: flex;
-  &__default {
-    .card__image {
-      background-image: linear-gradient(-134deg, #A8C4D0 0%, #7396A5 100%)!important;
-    }
+  &.card__no-image {
+    background-image: linear-gradient(-134deg, #A8C4D0 0%, #7396A5 100%)!important;
     .card__channel {
       background-color: $white;
-      color: transparent;
     }
     .card__read-more {
       font-weight: 600;
@@ -15,12 +12,22 @@
       color: #FFFFFF;
       letter-spacing: 0.21px;
     }
+    .card__content_wrap {
+      background-color: transparent;
+    }
+  }
+  &__default {
+
   }
   &__content_wrap {
     display: flex;
     align-items: flex-end;
     width: 100%;
+    height:100%;
     background-color: rgba(0, 0, 0, 0.34);
+  }
+  &__overlay {
+    width: 100%;
   }
   &__content {
     text-align: center;
@@ -40,7 +47,7 @@
     letter-spacing: 0.21px;
     margin-bottom: 25px;
     display: inline-block;
-    padding: 3px 15px;
+    padding: 6px 15px;
     color: $white;
   }
   &__headline {
@@ -91,7 +98,7 @@
 .col-full {
   .card {
     &__headline {
-      @include desktop-sm {
+      @include tablet {
         font-size: 44px;
         color: #FFFFFF;
         letter-spacing: -0.61px;
@@ -110,7 +117,7 @@
 .col-quarter {
   @include desktop-sm {
     .card__text {
-      max-width: 235px;
+      //max-width: 235px;
     }
   }
 }
@@ -118,7 +125,7 @@
 .col-third {
   @include desktop-sm {
     .card__text {
-      max-width: 275px;
+      //max-width: 275px;
     }
   }
 }
@@ -126,7 +133,7 @@
 .col-half {
   @include desktop-sm {
     .card__text {
-      max-width: 450px;
+      //max-width: 450px;
     }
   }
 }

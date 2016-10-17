@@ -22,14 +22,33 @@ $black:           #000000;
 $white:           #ffffff;
 
 $sections: (
-  category:   #15b999,
-  creative:   #f1663c,
-  digital:    #0076a3,
-  follow:     #00a651,
-  innovation: #394d5f,
-  marketing:  #15b999,
-  media:      #662d91,
-  technology: #cf42b6,
+  national:    (
+    color: rgba(69, 101, 118, 1),
+  ),
+  world: (
+    color: rgba(106, 131, 145, 1)
+  ),
+  lifestyle:        (
+    color: rgba(134, 154, 165, 1)
+  ),
+  travel:         (
+    color: rgba(162, 178, 167, 1)
+  ),
+  entertainment:     (
+    color: rgba(190, 201, 207, 1)
+  ),
+  technology:       (
+    color: rgba(209, 217, 221, 1)
+  ),
+  finance:         (
+    color: rgba(227, 232, 234, 1)
+  ),
+  sport:      (
+    color: rgba(69, 101, 118, 0.10)
+  ),
+  extra:      (
+    color: rgba(69, 101, 118, 0.05)
+  )
 );
 
 $cards: (
