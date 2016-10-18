@@ -20,7 +20,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('styles', function(){
-  gulp.src('public/sass/index.scss')
+  gulp.src('static/css/sass/index.scss')
     .pipe(sourcemaps.init())
     .pipe(
       sass({
@@ -42,7 +42,7 @@ gulp.task('styles', function(){
     //.pipe(minifycss())
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(sourcemaps.write())
-    .pipe( gulp.dest('public') )
+    .pipe( gulp.dest('static/css') )
 });
 
 
@@ -56,7 +56,7 @@ gulp.task('watch', function() {
     }
 
     // Watch .scss files
-    gulp.watch('public/sass/**/*.scss', ['styles']);
+    gulp.watch('static/css/sass/**/*.scss', ['styles']);
 
   });
 

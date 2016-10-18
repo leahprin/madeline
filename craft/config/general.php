@@ -14,17 +14,14 @@ define('BASE_PATH', 	  realpath(dirname(__FILE__) . '/../') . '/');
 return array(
 
 	'*' => array(
-			'devMode' => true,
-			'siteName' => 'Madeline Theme - Cognitives',
-	),
-
-	'.dev' => array(
-			'environmentVariables' => array(
-					'basePath' =>  BASE_PATH,
-					'baseUrl'  => BASE_URL,
-					'userSessionDuration' => false,
-					'omitScriptNameInUrls' => true,
-			)
+		'devMode' => true,
+		'siteName' => 'Madeline Theme - Cognitives',
+		'environmentVariables' => array(
+				'basePath' =>  BASE_PATH,
+				'baseUrl'  => BASE_URL,
+				'userSessionDuration' => false,
+				'omitScriptNameInUrls' => true,
+		)
 	),
 
 );
