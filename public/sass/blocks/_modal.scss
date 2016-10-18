@@ -62,10 +62,13 @@
 }
 
 .close {
-	top: 10px;
-	right: 10px;
+	top: 20px;
+	right: 24px;
 	opacity: 1;
-	position: absolute;
+	position: fixed;
+	@include desktop-sm {
+		right: 38px;
+	}
 	.fa-close {
 		color: white;
 	}
