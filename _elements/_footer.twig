@@ -30,26 +30,40 @@
                 <a href="#"><i class="fa fa-google-plus"></i></a>
                 <a href="#"><i class="fa fa-facebook-f"></i></a>
             </div>
-            <a class="footer__additional-links" href="#">Contact Us</a>
+            <a class="footer__additional-links" href="/contact">Contact Us</a>
             <a class="footer__additional-links" href="#">Privacy Policy</a>
             <a class="footer__additional-links" href="#">Terms & Conditions</a>
-            <div class="footer__copyright">Copyright {{'now'|date('Y')}}. All rights reserved.</div>
         </div>
 
         <div class="footer__desktop">
             <div class="footer__left">
-                <a href="#" class="footer__logo"><img src="https://unsplash.it/225/50"/></a>
+                <a href="/" class="footer__logo"><img src="https://unsplash.it/225/50"/></a>
                 <div class="footer__navigation">
                     <div class="header__navigation-row">
                         <ul class="header__navigation-list">
                             {% set entries = craft.categories.group('channels') %}
-                            {% nav entry in entries %}
-                            <li class="header__navigation-item">
-                                <a href="{{ entry.url }}" class="header__navigation-link">
-                                    {{ entry.title }}
-                                </a>
-                            </li>
-                            {% endnav %}
+                            {% for i in 0..4 %}
+                                {% set entry = entries[i] %}
+                                <li class="header__navigation-item">
+                                    <a href="{{ entry.url }}" class="header__navigation-link header__navigation-item--{{ entry.title|lower }}">
+                                        {{ entry.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            {% if entries[5] is defined %}
+                                <li class="header__navigation-item dropdown">
+                                    <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown1" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                        More Channels <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                                        {% for i in 5..(entries|length - 1)%}
+                                            {% set entry = entries[i] %}
+                                            <li class="header__navigation-item--{{ entry.title|lower }}"><a href="{{ entry.url }}" class="">{{ entry.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -62,7 +76,7 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                         <a href="#"><i class="fa fa-facebook-f"></i></a>
                     </div>
-                    <a class="footer__additional-links" href="#">Contact Us</a>
+                    <a class="footer__additional-links" href="/contact">Contact Us</a>
                     <a class="footer__additional-links" href="#">Privacy Policy</a>
                     <a class="footer__additional-links" href="#">Terms & Conditions</a>
                 </div>

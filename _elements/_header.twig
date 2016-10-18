@@ -7,7 +7,7 @@
         <div id="header__menu">
             <div class="profile__container">
                 <div class="profile__menu">
-                    <div class="profile__menu-image" style="background-image:url('https://unsplash.it/80');"></div>
+                    <div class="profile__menu-image" style="background-image:url('https://unsplash.it/80');background-position: 50% 50%;"></div>
                     <div class="profile__menu-content">
                         <div class="profile__menu-name">Amos Whitewolf</div>
                         <div class="profile__menu-email">amoswhitewolf@gmail.com</div>
@@ -77,15 +77,29 @@
         <div class="container">
             <div class="header__navigation-row">
                 <ul class="header__navigation-list">
-                    {% set entries = craft.categories.group('channel') %}
-                    {% nav entry in entries %}
-                        <li class="header__navigation-item">
+                    {% set entries = craft.categories.group('channels') %}
+                    {% for i in 0..4 %}
+                        {% set entry = entries[i] %}
+                        <li class="header__navigation-item header__navigation-item--{{ entry.title|lower }}">
                             <a href="{{ entry.url }}" class="header__navigation-link">
                                 {{ entry.title }}
                             </a>
                         </li>
-                    {% endnav %}
-										<li><a href="/contact-us">Contact Us</a></li>
+                    {% endfor %}
+                    {% if entries[5] is defined %}
+                        <li class="header__navigation-item dropdown">
+                            <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                More Channels <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                {% for i in 5..(entries|length - 1)%}
+                                    {% set entry = entries[i] %}
+                                    <li class="header__navigation-item--{{ entry.title|lower }}"><a href="{{ entry.url }}" class="">{{ entry.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                    {% endif %}
                 </ul>
             </div>
         </div>

@@ -1,80 +1,9 @@
-.article {
-    &__image {
-        height: 470px;
-        width: 100%;
-    }
-    &__container {
-        max-width: 770px;
-        margin: 0 auto 30px;
-    }
-    &__channel_wrap {
-        text-align: center;
-        width: 100%;
-        position: relative;
-        bottom: 15px;
-    }
-    &__channel {
-        background: #7396A5;
-        border-radius: 39px;
-        font-weight: 600;
-        font-size: 13px;
-        letter-spacing: 0.21px;
-        margin-bottom: 60px;
-        display: inline-block;
-        padding: 3px 15px;
-        color: $white;
-    }
-    &__follow {
-        font-size: 13px;
-        color: #7396A5;
-        border: 1px solid #7396A5;
-        padding: 2px 10px 4px;
-        max-width: 62px;
-    }
-    &__author {
-        font-weight: 700;
-        font-size: 13px;
-        color: #4A4A4A;
-        letter-spacing: 0px;
-        line-height: 1.4;
-        margin-bottom: 7px;
-    }
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 50px;
-    }
-    &__profile {
-        display: flex;
-    }
-    &__header_actions {
-        margin-top: 12px;
-    }
-    &__headline {
-        text-align: center;
-    }
-    &__date {
-        opacity: 0.69;
-        font-weight: 600;
-        font-size: 12px;
-        color: #4A4A4A;
-        letter-spacing: 0px;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    &__intro, &__intro p {
-        font-weight: 600;
-        font-size: 24px;
-        color: #4A4A4A;
-        letter-spacing: -0.33px;
-        line-height: 34px;
-        margin-bottom: 30px;
-    }
-}
-
 div.article {
     @extend .container;
-    padding: 0 10px;
+    padding: 0 15px;
+    @include desktop-sm {
+        padding:0;
+    }
     &::before {
         display: none;
     }
@@ -88,7 +17,10 @@ div.article {
 
     }
     h1 {
-        font-size: 44px;
+        font-size: 32px;
+        @include tablet {
+            font-size: 44px;
+        }
         font-weight: 700;
         color: #4A4A4A;
         letter-spacing: -0.014em;
@@ -96,7 +28,10 @@ div.article {
         margin-bottom: 30px;
     }
     h2 {
-        font-size: 35px;
+        font-size: 26px;
+        @include tablet {
+            font-size: 35px;
+        }
         font-weight: 700;
         color: #4A4A4A;
         letter-spacing: -0.014em;
@@ -134,12 +69,146 @@ div.article {
     }
 }
 
+.article {
+    &__image {
+        height:260px;
+        width: calc(100% + 30px);
+        margin-left: -15px;
+        margin-right: -15px;
+        @include tablet {
+            margin-left: calc(-16px - 1%);
+            margin-right: calc(-16px - 1%);
+            width: calc(102% + 32px);
+            height: 470px;
+        }
+        @include desktop-sm {
+            margin-left:0;
+            margin-right:0;
+            width:100%;
+        }
+    }
+    &__container {
+        max-width: 770px;
+        margin: 0 auto 30px;
+        @include desktop-lg {
+            max-width: 1080px;
+        }
+    }
+    &__channel_wrap {
+        text-align: center;
+        width: 100%;
+        position: relative;
+        bottom: 15px;
+    }
+    &__channel {
+        border-radius: 39px;
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.21px;
+        margin-bottom: 15px;
+        display: inline-block;
+        padding: 3px 15px;
+        background-color: #fff;
+        border: 1px solid #456576;
+        color: #456576;
+        @include tablet {
+            margin-bottom: 60px;
+        }
+    }
+    &__author {
+        font-weight: 700;
+        font-size: 13px;
+        color: #4A4A4A;
+        letter-spacing: 0px;
+        line-height: 1.4;
+        margin-bottom: 7px;
+    }
+    &__header {
+        justify-content: space-between;
+        margin-bottom: 35px;
+        @include tablet {
+            display: flex;
+            margin-bottom: 50px;
+        }
+        &_actions {
+            text-align: center;
+            margin-top: 5px;
+            @include tablet {
+                margin-top: 0;
+                text-align: left;
+            }
+        }
+    }
+    &__profile {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include tablet {
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-direction: row;
+        }
+    }
+    &__headline {
+        text-align: center;
+    }
+    &__date {
+        opacity: 0.69;
+        font-weight: 600!important;
+        font-size: 12px!important;
+        color: #4A4A4A;
+        letter-spacing: 0px!important;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    &__intro, &__intro p {
+        font-weight: 600!important;
+        font-size: 24px!important;;
+        color: #4A4A4A!important;;
+        letter-spacing: -0.33px!important;;
+        line-height: 34px!important;;
+        margin-bottom: 30px!important;;
+    }
+}
+
+.comments-header {
+    margin-bottom:10px;
+}
+
+.additional-articles__header {
+    margin: 56px auto!important;
+}
+
+.show-comments {
+    background: #FFFFFF;
+    border: 1px solid #7396A5;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #7396A5;
+    letter-spacing: 0px;
+    padding: 3px 15px 4px;
+}
+
+.profile__user_image {
+    margin-bottom: 8px;
+    @include tablet {
+        margin-bottom: 0;
+    }
+}
+
 .profile__author_wrap {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    margin-left: 15px;
-    align-self: flex-end;
+    align-self: center;
     margin-bottom: 2px;
+    @include tablet {
+        align-items: flex-start;
+        align-self: center;
+        margin-left: 15px;
+    }
 }
 
 .DisqusCommentArea {

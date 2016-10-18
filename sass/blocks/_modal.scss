@@ -1,14 +1,88 @@
 /* Layout ▸ Modal
 ----------------------------- */
+.social-modal {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	@include desktop-sm {
+		flex-direction: row;
+	}
+	&__image {
+		width:100%;
+		height:260px;
+		@include desktop-sm {
+			width: 590px;
+			height: 750px;
+		}
+	}
+	&__content {
+		padding: 10px 25px 25px;
+		background: rgba(75,58,95,1);
+		box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.16);
+		text-align: center;
+		@include desktop-sm {
+			flex: 1 1;
+			text-align: left;
+			padding: 30px 25px;
+		}
+	}
+	&__text {
+		font-weight: 600;
+		font-size: 25px;
+		color: #FFFFFF;
+		letter-spacing: -0.35px;
+		line-height: 30px;
+		text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
+		margin-bottom:15px;
+		@include tablet {
+			text-align: left;
+			margin-bottom: 30px;
+		}
+	}
+	&__channel {
+		border-radius: 39px;
+		font-weight: 600;
+		font-size: 13px;
+		letter-spacing: 0.21px;
+		display: inline-block;
+		padding: 3px 15px;
+		background-color: #fff;
+		color: #456576;
+		position: relative;
+		bottom: 24px;
+		margin-bottom: 15px;
+		@include desktop-sm {
+			bottom: auto;
+		}
+	}
+	.article__author {
+		color: white;
+		margin-bottom: 5px;
+	}
+}
+
+.close {
+	top: 20px;
+	right: 24px;
+	opacity: 1;
+	position: fixed;
+	@include desktop-sm {
+		right: 38px;
+	}
+	.fa-close {
+		color: white;
+	}
+}
+
 .modal {
 	z-index:9999;
-	background:rgba(darken($light-color, 100%), 0.75) none repeat scroll 0 0;
+	background-image: linear-gradient(43deg, rgba(82, 45, 88, 0.95) 0%, rgba(37, 49, 78, 0.95) 83%, rgba(32, 61, 107, 0.95) 100%);;
 }
 .modal {
 	text-align:center;
 }
 .modal-backdrop.in {
-	opacity:0.95;
+	opacity: 0.96;
 }
 .modal-intro {
 	color:$light-color;
@@ -35,22 +109,15 @@
 	vertical-align:middle;
 }
 
-
-/*  */
-/* Modal Sizes */
-/*  */
-.modal-dialog.modal-sm {
-	width:560px;
-}
-.modal-dialog.modal-md {
-	width:680px;
-}
-.modal-dialog.modal-lg {
-	max-width:760px;
-	width: 90%;
-}
 .modal-dialog.modal-extlg {
-	width:1100px;
+	width: calc(100% - 24px);
+	@include tablet {
+		width: 80%;
+	}
+	max-width:1060px;
+	@include desktop-sm {
+		width: 95%;
+	}
 }
 
 
@@ -61,7 +128,7 @@
 .modal-content {
 	border:0px none;
 	border-radius:0px;
-	box-shadow: 0 8px 35px 8px rgba(darken($light-color, 100%), 0.9);
+	box-shadow: inset 0px 2px 0px 0px #7DAAFF;
 }
 
 

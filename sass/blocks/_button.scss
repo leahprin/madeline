@@ -1,12 +1,45 @@
-.article__button {
+.button {
   background: transparent;
   border: 1px solid #C5C8D2;
   border-radius: 2px;
-  padding: 6px 20px 8px 35px;
+  padding: 6px 20px 8px 20px;
   font-weight: 600;
   line-height: 1.4;
   font-size: 13px;
   display: inline-block;
   color: #4A4A4A;
   letter-spacing: 0px;
+  &__follow {
+    font-size: 13px;
+    color: #7396A5;
+    border: 1px solid #7396A5;
+    padding: 2px 10px 4px;
+    max-width: 62px;
+  }
+}
+
+
+
+.header_actions {
+  &__comments, &__share {
+    margin-top: 12px;
+    padding-left: 35px;
+  }
+  &__comments {
+    background-image: url(/images/icons/comment-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 13px 8px;
+    margin-right: 5px;
+  }
+  &__share {
+    background-image: url(/images/icons/share-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 13px 8px;
+  }
+}
+
+.user-header__comments, .user-header__share {
+  height:34px;
+  padding: 6px 20px 8px 20px;
+  max-width:none;
 }

@@ -1,27 +1,22 @@
 // Sections
-@each $section in $sections {
-  $name:  nth($section, 1);
-  $color: nth($section, 2);
+@each $section, $values in $sections {
+  $name:  $section;
+  $color: map-get($values, color);
 
-  //Change styling for header
-  .header--#{$name} {
-    border-color: $color;
+  .header__navigation-item--#{$name} {
+    border-bottom: solid 4px $color;
+  }
+
+  .footer--#{$name} {
+    box-shadow: inset 0px 2px 0px 0px $color;
   }
 
   .card--#{$name} {
     border-color: $color;
 
     .card {
-      &__category {
-        color: $color;
-
-        &:after {
-          background-color: $color;
-        }
-      }
-      &__no-image,
-      &__image {
-        border-color: $color;
+      &__no-image .card__overlay {
+        background: $color;
       }
       &__author {
         color: $color;
@@ -38,7 +33,7 @@
           }
         }
       }
-    }    
+    }
   }
 
   .card__follow.card--#{$name} {
@@ -52,17 +47,11 @@
       &__banner {
         border-color: $color;
       }
-      &__category {
-        color: $color;
-        &:after{
-          background: $color;
-        }
-      }
       &__follow {
         background-color: $color;
       }
       &__caption {
-        .card {      
+        .card {
           &__author {
             color: $color;
           }

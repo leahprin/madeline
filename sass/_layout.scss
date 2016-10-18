@@ -25,15 +25,28 @@
     }
 }
 
-.home {
+div.home, div.channel, div.profile {
     @extend .container;
     display: flex;
     flex-wrap: wrap;
+    @include tablet {
+        padding:0 10px;
+    }
+    @include desktop-sm {
+        padding:0;
+    }
     &::before {
         display: none;
     }
     &::after {
         display: none;
+    }
+}
+
+div.home {
+    @media (max-width: 1190px) {
+        padding: 0;
+        width:100%;
     }
 }
 
@@ -55,7 +68,7 @@
     }
     &-half {
         flex: 1 0 308px;
-        @include desktop-sm {
+        @include tablet-lg {
             flex: 1 0 50%;
         }
     }
