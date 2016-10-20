@@ -11,28 +11,36 @@
             justify-content: center;
         }
         &-list {
-            margin: 0px 0px 30px 0;
-            padding: 0px;
-            li:nth-of-type(6) {
-                border-bottom: 4px solid rgba(69, 101, 118, 0.25);
+            //margin: 0px 0px 30px 0;
+            //padding: 0px;
+						display: none;
+						border-left: 1px solid #D9E5E9;
+						padding-left: 13px;
+						margin-left: 30px;
+						@include desktop-sm {
+								display: inline-block;
+						}
 
-            }
         }
         &-item {
             display: inline-block;
-            margin-right: -3px;
+            //margin-right: -3px;
         }
         &-link {
             color: $link-color;
             display: inline-block;
-            font-weight: 600;
-            font-size: 18px;
-            text-transform: uppercase;
-            padding: 0 15px 10px;
+            font-weight: 400;
+            font-size: 17px;
+            //text-transform: uppercase;
+            padding: 7px 17px 8px;
             line-height: 20px;
+						font-family: "Droid Serif", serif;
+						border-radius: 25px;
             @include transition(color 0.5 ease);
-            &:active, &.active {
-                color: #7396A5;
+
+            &:hover, &.active {
+							background: #E5F8FC;
+							border-radius: 25px;
             }
         }
         &-selected {
@@ -86,7 +94,7 @@
                 align-items: center;
             }
             @include desktop-sm {
-                align-items: flex-start;
+                //align-items: flex-start;
                 padding: 35px 0 45px;
                 height: auto;
                 width: 1170px;
@@ -99,7 +107,7 @@
             }
         }
         &-highlight {
-            background: #4A4A4A;
+            background: #E6F9F5;
             height: 4px;
         }
         &-icons {
@@ -180,25 +188,32 @@
             }
             &--profile {
                 &, &:link, &:visited, &:active {
-                    background-image: url(/static/images/icons/profile.svg);
+                    background-image: url(/static/images/icons/cog.svg);
                     background-repeat: no-repeat;
                     background-position: 50% 50%;
+										background-color: rgb(230, 243, 245);
+										height: 39px;
+										width: 39px;
                     right: 0px;
-                    margin-left: 30px;
+                    margin-left: 4px;
                     top: 4px;
                     height: 40px;
                     width: 40px;
                     z-index: 100;
                     margin-right: 10px;
-                    background-size: 30px;
+                    background-size: 20px;
+										border-radius: 50%;
                     @include tablet {
-                        margin-right: 20px;
-                        background-size: 35px;
+                        margin-right: 10px;
+                        //background-size: 35px;
                     }
                     @include desktop-sm {
                         margin-right: 0;
                     }
                 }
+							&:hover {
+								background-color: #FBE1AC;
+							}
             }
             &--responsive {
                 background-image: url(/static/images/icons/menu.svg);
@@ -215,20 +230,20 @@
 
                 @include tablet {
                     display: inline-block !important;
-                    background-size: 35px;
+                        background-size: 23px;
                 }
                 @include desktop-sm {
-                    background-size: 40px;
+                    //
                     display: none !important;
                 }
             }
         }
 
         &--left {
-            text-align: right;
-            @include desktop-sm {
-                text-align: right;
-            }
+            // text-align: right;
+            // @include desktop-sm {
+            //     text-align: right;
+            // }
         }
         &--right {
             display: flex;
@@ -247,22 +262,41 @@
 
     &__search {
         float: right;
+				position: relative;
 
+				&-text, &-btn {
+					border: none;
+			    display: inline-block;
+					height: 39px;
+				}
         &-text {
-            background-color: transparent;
-            background-image: url(/static/images/icons/search-magnifying-glass.svg);
-            background-position: 100% 50%;
-            background-repeat: no-repeat;
-            background-size: 16px;
-            border: none;
-            display: inline-block;
-            font-size: 16px;
-            width: 300px;
-            box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,0.17);
-            height: 48px;
-            margin: 0px;
-            padding: 8px 0 8px 12px;
+			    font-size: 14px;
+			    width: 230px;
+			    line-height: 39px;
+			    margin: 0px;
+			    padding: 4px 0 7px 19px;
+			    background-color: #E6F3F5;
+			    border-radius: 25px;
+					&:focus {
+						background-color: #FBE1AC;
+					}
         }
+				&-btn {
+					background: none;
+			    background-image: url(/static/images/icons/search-magnifying-glass.svg);
+			    background-position: 10px 10px;
+			    background-repeat: no-repeat;
+			    background-size: 16px;
+			    width: 39px;
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    border-radius: 25px;
+					&:hover {
+						background-color: rgba(0,0,0,0.08);
+					}
+
+				}
     }
 }
 

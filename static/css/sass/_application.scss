@@ -3,9 +3,9 @@
   $name:  $section;
   $color: map-get($values, color);
 
-  .header__navigation-item--#{$name} {
-    border-bottom: solid 4px $color;
-  }
+  // .header__navigation-item--#{$name} {
+  //   border-bottom: solid 4px $color;
+  // }
 
   .footer--#{$name} {
     box-shadow: inset 0px 2px 0px 0px $color;

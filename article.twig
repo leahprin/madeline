@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="article__header_actions">
-					<a href="#" class="button header_actions header_actions__comments">Comments</a>
+					<a href="#comments" class="button header_actions header_actions__comments">Comments</a>
 					<a href="#" class="button header_actions header_actions__share">Share</a>
 				</div>
 			</div>
@@ -29,10 +29,10 @@
 
 			{{ articleBody|raw }}
 
-			<h3 class="comments-header">Comments</h3>
+			<h2 class="comments-header" id="comments"><span class="disqus-comment-count" data-disqus-url="{{link}}"></span>Comments</h2>
 			{% include "_elements/disqus" %}
 		</div>
-		<h1 class="text-center additional-articles__header">You may also like ...</h1>
+		<h2 class="text-center additional-articles__header">You may also like ...</h2>
 
 	</div>
 	{% set limit = 20 %}

@@ -1,0 +1,21 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+	<div class="search">
+hi
+{#
+		{% set query = craft.request.getParam('q') %}
+		{% set entries = craft.entries.search(query).order('score') %}
+
+		{% if entries|length %}
+		    <p>{{ entries|length }} results:</p>
+      {% for entry in entries %}
+				<div class="col-quarter">
+          {% include '_elements/card' %}
+				</div>
+      {% endfor %}
+		{% else %}
+		    <p>Your search for “{{ query }}” didn’t return any results.</p>
+		{% endif %} #}
+</div>
+{% endblock %}

@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="283.46px" height="215.438px" viewBox="0 0 283.46 215.438" style="enable-background:new 0 0 283.46 215.438;"
-	 xml:space="preserve">
-<g id="menu">
-	<g>
-		<g>
-			<path style="fill-rule:evenodd;clip-rule:evenodd;fill:#4C4B4C;" d="M-0.002,215.449h283.465v-34.016H-0.002V215.449z
-				 M-0.002,0.011v34.016h283.465V0.011H-0.002z M-0.002,124.729h283.465v-34.01H-0.002V124.729z"/>
-		</g>
-	</g>
-</g>
-<g id="Layer_1">
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="17px" viewBox="0 0 23 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="bevel">
+        <g id="Artboard" transform="translate(-1838.000000, -90.000000)" stroke="#9FA8AA" stroke-width="3">
+            <g id="Group-7" transform="translate(1839.000000, 90.000000)">
+                <path d="M0.5,1.5 L20.5,1.5" id="Line"></path>
+                <path d="M0.5,8.5 L20.5,8.5" id="Line-Copy"></path>
+                <path d="M0.5,15.5 L20.5,15.5" id="Line-Copy-2"></path>
+            </g>
+        </g>
+    </g>
 </svg>

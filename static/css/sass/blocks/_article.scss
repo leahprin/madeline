@@ -185,11 +185,21 @@ div.article {
 }
 
 .comments-header {
-    margin-bottom:10px;
+    //margin-bottom:10px;
+		border-top: 1px solid rgba(0,0,0,0.1);
+		padding-top: 50px;
+		margin-bottom: 50px!important;
+		opacity: 0.4;
+		font-weight: 400!important;
+		text-align: center;
 }
 
 .additional-articles__header {
-    margin: 56px auto!important;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	padding-top: 50px;
+	margin-bottom: 50px!important;
+	opacity: 0.4;
+	font-weight: 400!important;
 }
 
 .show-comments {
