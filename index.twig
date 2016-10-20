@@ -1,3 +1,69 @@
 {{ void(this.beginBlock('content')) }}
 homepage
+
+	{# {% set limit = 20 %}
+	{% set articles = craft.entries.section('posts').find() %}
+
+	<div class="home">
+		{% if articles|length > 0 %}
+			{% if articles[0] is defined %}
+				<div class="col-full">
+					{% include '_elements/card.twig' with {article: articles[0]} %}
+				</div>
+			{% endif %}
+			{% if articles[1] is defined %}
+				<div class="col-third">
+					{% include '_elements/card.twig' with {article: articles[1]} %}
+				</div>
+			{% endif %}
+			{% if articles[2] is defined %}
+				<div class="col-third">
+					{% include '_elements/card.twig' with {article: articles[2]} %}
+				</div>
+			{% endif %}
+			{% if articles[3] is defined %}
+				<div class="col-third">
+					{% include '_elements/card.twig' with {article: articles[3]} %}
+				</div>
+			{% endif %}
+			{% if articles[4] is defined %}
+				<div class="col-half">
+					{% include '_elements/card.twig' with {article: articles[4]} %}
+				</div>
+			{% endif %}
+			{% if articles[5] is defined %}
+				<div class="col-half">
+					{% include '_elements/card.twig' with {article: articles[5]} %}
+				</div>
+			{% endif %}
+			{% if articles[6] is defined %}
+				<div class="col-quarter">
+					{% include '_elements/card.twig' with {article: articles[6]} %}
+				</div>
+			{% endif %}
+			{% if articles[7] is defined %}
+				<div class="col-quarter">
+					{% include '_elements/card.twig' with {article: articles[7]} %}
+				</div>
+			{% endif %}
+			{% if articles[8] is defined %}
+				<div class="col-quarter">
+					{% include '_elements/card.twig' with {article: articles[8]} %}
+				</div>
+			{% endif %}
+			{% if articles[9] is defined %}
+				<div class="col-quarter">
+					{% include '_elements/card.twig' with {article: articles[9]} %}
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+
+	<div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
+	<div class="row text-center has-margin-bottom-20">
+		{% if articles|length >= limit %}
+			<a href="javascript:void(0)" class="button loadMoreArticles"><i class="fa fa-arrow-down"></i>Load More</a>
+		{% endif %}
+	</div> #}
+
 {{ void(this.endBlock()) }}
