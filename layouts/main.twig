@@ -21,20 +21,17 @@
 
 <body>
 	<div id="container">
-		{% include '_elements/_header' %}
+		{% include '_elements/_header.twig' %}
 
 		<main id="content" role="main">
-			{% block content %}
-				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
-			{% endblock %}
+				{{ this.blocks['content'] }}
 		</main>
 
-		{% include '_elements/social-modal' %}
-		{% include '_elements/_footer' %}
+		{% include '_elements/social-modal.twig' %}
+		{% include '_elements/_footer.twig' %}
 
 	</div>
 
-	{% include '_elements/_javascript' %}
+	{% include '_elements/_javascript.twig' %}
 </body>
 </html>
