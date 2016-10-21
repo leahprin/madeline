@@ -25,19 +25,20 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 {% set headline = '' %}
 {% set socialLink = '' %}
 {% set articleBody = '' %}
+
+{# ARTICLE Variables #}
+{% if article.articleId > 0 %}
+	{% set cardType = 'article' %}
+	{% set headline = social.content %}
+	{% set author = article.author.fullName %}
+	{% set authorBio = article.author.authorBio %}
+	{% set articleBody = article.articleBody %}
 {# SOCIAL Variables #}
-{% if article.type == "social" %}
+{% else %}
 	{% set cardType = 'social' %}
 	{% set author = article.socialAuthor %}
 	{% set network = article.socialNetwork %}
 	{% set socialLink = article.socialLink %}
-	{# ARTICLE Variables #}
-{% elseif article.type == "article" %}
-	{% set cardType = 'article' %}
-	{% set headline = article.title %}
-	{% set author = article.author.fullName %}
-	{% set authorBio = article.author.authorBio %}
-	{% set articleBody = article.articleBody %}
 {% endif %}
 {% block content %}
 {% endblock %}
