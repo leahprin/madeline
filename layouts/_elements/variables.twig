@@ -46,7 +46,7 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set network = article.social.source %}
 	{% set socialLink = article.social.url %}
 	{% set image = article.social.media['path'] %}
-	{% set channel = article.blog['title'] %}
+	{% set channel = article.social.blog['title'] %}
 	{% set hasMediaClass = (social.hasMedia == 'TRUE') ? 'withImage__content' : 'without__image' %}
 {% endif %}
 
