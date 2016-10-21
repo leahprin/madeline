@@ -23,18 +23,18 @@
 
 <body>
 	<div id="container">
-		{% include '/layouts/_elements/_header.twig' %}
+		{% include '_elements/_header.twig' %}
 
 		<main id="content" role="main">
 			{{ this.blocks['content'] | raw }}
 
 		</main>
 
-		{% include '/layouts/_elements/social-modal.twig' %}
-		{% include '/layouts/_elements/_footer.twig' %}
+		{% include '_elements/social-modal.twig' %}
+		{% include '_elements/_footer.twig' %}
 
 	</div>
 
-	{% include '/layouts/_elements/_javascript.twig' %}
+	{% include '_elements/_javascript.twig' %}
 </body>
 </html>

@@ -1,6 +1,4 @@
-{% extends "layouts/main.twig" %}
-
-{% block content %}
+{{ void(this.beginBlock('content')) }}
 
 {% set articles = craft.entries.relatedTo(category) %}
 
@@ -59,4 +57,4 @@
     {% endif %}
 </div>
 
-{% endblock %}
+{{ void(this.endBlock()) }}
