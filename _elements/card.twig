@@ -12,7 +12,7 @@
 				<div class="card__content_wrap">
 					<div class="card__content">
 						<div class="card__channel-wrap">
-							<h5 class="card__channel">{{ channel }}</h5>
+							<h5 class="card__channel">Channel: {{ channel }}</h5>
 						</div>
 						{% if cardType == 'social' %}
 							<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
