@@ -36,14 +36,23 @@
                 {#<!--{% if networkData.logoMedia | length > 0 %}-->#}
                 <a class="header__heading-logo" href="/"><img src="{{networkData.templatePath}}/static/images/logo.svg" width="177" /></a>
 								<ul class="header__navigation-list">
-                    {% set entries = craft.categories.group('channels') %}
+									{% set menuItems = blogData.blogMenu %}
+									{% for menuItem in menuItems %}
+										{% set activeClass = (menuItem.link == _AppHelper.getServerUrl()) ? 'active' : ''%}
+										<li class="header__navigation-item header__navigation-item--{{ entry.title|lower }}">
+												<a href="{{menuItem.link |raw}}" class="header__navigation-link">
+													{% if menuItem.pageTitle == "" %}
+															{{menuItem.blogTitle}}
+													{% else %}
+															{{menuItem.pageTitle}}
+													{% endif %}
+												</a>
+										</li>
+									{% endfor %}
+                    {# {% set entries = craft.categories.group('channels') %}
                     {% for i in 0..4 %}
                         {% set entry = entries[i] %}
-                        <li class="header__navigation-item header__navigation-item--{{ entry.title|lower }}">
-                            <a href="{{ entry.url }}" class="header__navigation-link">
-                                {{ entry.title }}
-                            </a>
-                        </li>
+
                     {% endfor %}
                     {% if entries[5] is defined %}
                         <li class="header__navigation-item dropdown">
@@ -58,7 +67,7 @@
                             </ul>
                         </li>
 
-                    {% endif %}
+                    {% endif %} #}
                 </ul>
                 {#<!--{% endif %}-->#}
             </div>
