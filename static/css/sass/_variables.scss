@@ -3,6 +3,7 @@ $gray-color:      #ebebeb;
 $dark-color:      #000000;
 $base-color:      #404040;
 $grey:			  #808080;
+$body-text:       #4A4A4A;
 
 $highlight-color: #36647E;
 $quote-color:     #662d91;
@@ -83,5 +84,13 @@ $text-font-family: 	"Open Sans", Helvetica, Arial, sans-serif !default;
 $iconfont:				FontAwesome !default;
 
 // Font Size
-$baseFontSize:			14px; /* ($baseFontSize * 1) + 0px; */
+$baseFontSize:			18px; /* ($baseFontSize * 1) + 0px; */
 $center:				center;
+
+@mixin text-sm($letter-spacing: 0, $color: $body-text) {
+  font-size: ($baseFontSize * 0.72); // 13px
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: $letter-spacing + px;
+  color: $body-text;
+}

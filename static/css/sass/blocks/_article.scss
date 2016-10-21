@@ -1,4 +1,4 @@
-div.article {
+.article {
     @extend .container;
     padding: 0 15px;
     @include desktop-sm {
@@ -79,9 +79,6 @@ div.article {
             margin-right: -200px;
         }
     }
-}
-
-.article {
     &__image {
         height:260px;
         width: calc(100% + 30px);
@@ -167,31 +164,31 @@ div.article {
     }
     &__date {
         opacity: 0.69;
-        font-weight: 600!important;
-        font-size: 12px!important;
+        font-weight: 600;
+        font-size: 12px;
         color: #4A4A4A;
-        letter-spacing: 0px!important;
+        letter-spacing: 0px;
         text-align: center;
         margin-bottom: 30px;
     }
     &__intro, &__intro p {
-        font-weight: 600!important;
-        font-size: 24px!important;;
-        color: #4A4A4A!important;;
-        letter-spacing: -0.33px!important;;
-        line-height: 34px!important;;
-        margin-bottom: 30px!important;;
+        font-weight: 600;
+        font-size: 24px;
+        color: #4A4A4A;
+        letter-spacing: -0.33px;
+        line-height: 34px;
+        margin-bottom: 30px;
     }
 }
 
 .comments-header {
-    //margin-bottom:10px;
-		border-top: 1px solid rgba(0,0,0,0.1);
-		padding-top: 50px;
-		margin-bottom: 50px!important;
-		opacity: 0.4;
-		font-weight: 400!important;
-		text-align: center;
+  //margin-bottom:10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 50px;
+  margin-bottom: 50px !important;
+  opacity: 0.4;
+  font-weight: 400 !important;
+  text-align: center;
 }
 
 .additional-articles__header {
