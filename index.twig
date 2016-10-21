@@ -1,7 +1,6 @@
 {{ void(this.beginBlock('content')) }}
-homepage
 
-	{# {% set limit = 20 %}
+	{% set limit = 20 %}
 	{% set articles = craft.entries.section('posts').find() %}
 
 	<div class="home">
@@ -64,6 +63,6 @@ homepage
 		{% if articles|length >= limit %}
 			<a href="javascript:void(0)" class="button loadMoreArticles"><i class="fa fa-arrow-down"></i>Load More</a>
 		{% endif %}
-	</div> #}
+	</div>
 
 {{ void(this.endBlock()) }}
