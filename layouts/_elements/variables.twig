@@ -42,9 +42,9 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set cardType = 'social' %}
 	{% set text = article.social.content %}
 	{% set author = article.social.user['name'] %}
-	{% set network = social.source %}
-	{% set socialLink = article.socialLink %}
-	{% set mytest = 'Im social' %}
+	{% set network = article.social.source %}
+	{% set socialLink = article.social.url %}
+	{% set image = article.social.media['path'] %}
 {% endif %}
 {% block content %}
 {% endblock %}
