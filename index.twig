@@ -1,7 +1,7 @@
 {{ void(this.beginBlock('content')) }}
 
 	{% set limit = 20 %}
-	{% set articles = craft.entries.section('posts').find() %}
+	{% set articles = articlesArr.articles %}
 
 	<div class="home">
 		{% if articles|length > 0 %}
