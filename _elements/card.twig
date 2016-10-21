@@ -16,7 +16,7 @@
 						</div>
 						{% if cardType == 'social' %}
 							<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
-							<p class="card__author">{{ network }} @{{ author }}</p>
+							{# <p class="card__author">{{ network }} @{{ author }}</p> #}
 						{% elseif cardType == 'article' %}
 							<h3 class="card__headline">{{ headline }}</h3>
 							<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
@@ -24,9 +24,9 @@
 						{% endif %}
 						<p class="card__read-more">By {{ author }}</p>
 					</div>
-					{% if image is defined %}
+					{# {% if image is defined %}
 						<div class="card__image" style="background-image: url('{{ image }}'); background-size: cover; background-position: 50% 50%;"></div>
-					{% endif %}
+					{% endif %} #}
 				</div>
 			</div>
 		</a>
