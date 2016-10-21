@@ -5,7 +5,7 @@
    =============== #}
 
 {% block content  %}
-	<h1>{{ mytest }}</h1>
+
 	<article class="{{ cardType }}">
 		<a href="{{link}}" class="card card--{{ channel|lower }} {% if image is not defined %}card__no-image{% endif %} link" {% if image is defined %}style="background-image: url({{ image }}); background-size: cover;background-position: 50% 50%;"{% endif %}>
 			<div class="card__overlay">
@@ -14,6 +14,7 @@
 						<div class="card__channel-wrap">
 							<h5 class="card__channel">Channel: {{ channel }}</h5>
 						</div>
+							<h1>{{ mytest }}</h1>
 						{% if cardType == 'social' %}
 							<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
 							<p class="card__author">{{ network }} @{{ author }}</p>
