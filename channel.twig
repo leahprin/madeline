@@ -1,6 +1,7 @@
 {{ void(this.beginBlock('content')) }}
 
-{% set articles = craft.entries.relatedTo(category) %}
+{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+{% set articles = articlesArr.articles %}
 
 <div class="channel">
     {% if articles|length > 0 %}
