@@ -2,6 +2,7 @@
    VARIABLES
      - TODO: set these with cogs specific code
    =============== #}
+{% set networkData = _Network.getNetworkData() %}
 {% if article is not defined and entry is defined %}
 	{% set article = entry %}
 {% endif %}
