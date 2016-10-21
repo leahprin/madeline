@@ -26,7 +26,7 @@
 		{% include '_elements/_header.twig' %}
 
 		<main id="content" role="main">
-			{{ this.blocks['content'] }}
+			{{ this.blocks['content'] | raw }}
 
 		</main>
 
