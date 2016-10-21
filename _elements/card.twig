@@ -5,7 +5,7 @@
    =============== #}
 
 {% block content  %}
-
+	<h1>{{ mytest }}</h1>
 	<article class="{{ cardType }}">
 		<a href="{{link}}" class="card card--{{ channel|lower }} {% if image is not defined %}card__no-image{% endif %} link" {% if image is defined %}style="background-image: url({{ image }}); background-size: cover;background-position: 50% 50%;"{% endif %}>
 			<div class="card__overlay">

@@ -8,52 +8,52 @@
 		{% if articles|length > 0 %}
 			{% if articles[0] is defined %}
 				<div class="col-full">
-					{% include '_elements/card.twig' with {article: articles[0]} %}
+					{% include '_elements/card.twig' with {article: articles[0]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[1] is defined %}
 				<div class="col-third">
-					{% include '_elements/card.twig' with {article: articles[1]} %}
+					{% include '_elements/card.twig' with {article: articles[1]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[2] is defined %}
 				<div class="col-third">
-					{% include '_elements/card.twig' with {article: articles[2]} %}
+					{% include '_elements/card.twig' with {article: articles[2]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[3] is defined %}
 				<div class="col-third">
-					{% include '_elements/card.twig' with {article: articles[3]} %}
+					{% include '_elements/card.twig' with {article: articles[3]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[4] is defined %}
 				<div class="col-half">
-					{% include '_elements/card.twig' with {article: articles[4]} %}
+					{% include '_elements/card.twig' with {article: articles[4]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[5] is defined %}
 				<div class="col-half">
-					{% include '_elements/card.twig' with {article: articles[5]} %}
+					{% include '_elements/card.twig' with {article: articles[5]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[6] is defined %}
 				<div class="col-quarter">
-					{% include '_elements/card.twig' with {article: articles[6]} %}
+					{% include '_elements/card.twig' with {article: articles[6]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[7] is defined %}
 				<div class="col-quarter">
-					{% include '_elements/card.twig' with {article: articles[7]} %}
+					{% include '_elements/card.twig' with {article: articles[7]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[8] is defined %}
 				<div class="col-quarter">
-					{% include '_elements/card.twig' with {article: articles[8]} %}
+					{% include '_elements/card.twig' with {article: articles[8]} | raw %}
 				</div>
 			{% endif %}
 			{% if articles[9] is defined %}
 				<div class="col-quarter">
-					{% include '_elements/card.twig' with {article: articles[9]} %}
+					{% include '_elements/card.twig' with {article: articles[9]} | raw %}
 				</div>
 			{% endif %}
 		{% endif %}
