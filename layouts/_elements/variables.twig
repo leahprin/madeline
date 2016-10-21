@@ -39,9 +39,9 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set mytest = 'Im Article' %}
 {# SOCIAL Variables #}
 {% else %}
-	{% set text = article.social.content %}
 	{% set cardType = 'social' %}
-	{% set author = article.socialAuthor %}
+	{% set text = article.social.content %}
+	{% set author = article.social.user['name'] %}
 	{% set network = social.source %}
 	{% set socialLink = article.socialLink %}
 	{% set mytest = 'Im social' %}
