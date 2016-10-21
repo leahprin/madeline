@@ -29,12 +29,13 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 {# ARTICLE Variables #}
 {% if article.articleId > 0 %}
 	{% set cardType = 'article' %}
-	{% set headline = social.content %}
+	{% set headline = 'artile-geading-here' %}
 	{% set author = article.author.fullName %}
 	{% set authorBio = article.author.authorBio %}
 	{% set articleBody = article.articleBody %}
 {# SOCIAL Variables #}
 {% else %}
+	{% set text = social.content %}
 	{% set cardType = 'social' %}
 	{% set author = article.socialAuthor %}
 	{% set network = article.socialNetwork %}
