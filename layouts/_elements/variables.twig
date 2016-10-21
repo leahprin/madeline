@@ -33,10 +33,11 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 {% if article.articleId > 0 %}
 	{% set cardType = 'article' %}
 	{% set headline = article.title %}
-	{% set author = article.author.fullName %}
+	{% set author = article.createdBy['displayName'] %}
 	{% set authorBio = article.author.authorBio %}
 	{% set articleBody = article.articleBody %}
-	{% set mytest = 'Im Article' %}
+	{% set text = article.excerpt %}
+
 {# SOCIAL Variables #}
 {% else %}
 	{% set cardType = 'social' %}
@@ -48,5 +49,6 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set channel = article.blog['title'] %}
 	{% set hasMediaClass = (social.hasMedia == 'TRUE') ? 'withImage__content' : 'without__image' %}
 {% endif %}
-{% block content %}
-{% endblock %}
+
+
+{% block content %}{% endblock %}
