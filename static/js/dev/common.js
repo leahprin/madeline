@@ -1,5 +1,4 @@
 (function ($) {
-
     $(document).ready(function() {
         $('.show-comments').on('click', function(){
             var disqus_shortname = 'cognitives-io'; // Replace this value with *your* username.
@@ -14,9 +13,32 @@
             // hide the button once comments load
             $(this).fadeOut();
         });
+
+        $('.article img').attr('data-action','zoom');
     });
-    
-      $(window).resize(function(){
+
+    function draggable() {
+        if ($(".banner__container").width() > $(".banner").width()) {
+            console.log('working');
+            $(".banner__container").draggable({
+                cursor: "move",
+                containment: "banner",
+                axis: 'x',
+                drag: function( event, ui ) {
+                    ui.position.left = Math.min( 0,
+                      ($(".banner").width() - $(".banner__container").width()) < ui.position.left ?
+                        ui.position.left : ($(".banner").width() - $(".banner__container").width())
+                    );
+                }
+            });
+        }
+    }
+    draggable();
+
+
+
+
+    $(window).resize(function(){
         if ($('.side-navigation').is(':visible')) {
             var currentWidth = $('.side-navigation').width();
             var windowWidth = $(window).width();
@@ -25,11 +47,12 @@
                 $('.side-navigation').css('width', newWidth + 'px');
             }
         }
+        draggable();
     });
 
-    $('.social a').on('click', function (e) {
+    $('.card--social a').on('click', function (e) {
         e.preventDefault();
-        $('#socialModal').modal();
+        $('#socialModal').modal('show');
     })
 
     if ($('.dropdown-toggle')) {
@@ -57,8 +80,8 @@
     //         $(obj).html('please wait...');
     //     }
     // });
-    
-  
+
+
     // $('.shareIcons').SocialShare({
     //     onLoad: function (obj) {
     //         var title = obj.parents('div.article').find('.card__news-category').text();
@@ -74,7 +97,7 @@
     //         }, 10);
     //     }
     // });
-    
+
     $("#owl-thumbnails").owlCarousel({
         items: 2,
         itemsDesktop: [1199, 2],
@@ -90,27 +113,27 @@
             "<i class='fa fa-angle-left fa-2x'></i>",
             "<i class='fa fa-angle-right fa-2x'></i>"
         ]
-    });   
-    
-     //Contact form validation
+    });
+
+    //Contact form validation
     $('#contactForm').validate({
         rules: {
             name: "required",
             email: "required",
             message: "required"
         },
-       // errorElement: "span",
+        // errorElement: "span",
         messages: {
             name: "Name cannot be blank.",
             email: "Email cannot be blank.",
             message: "Message cannot be blank."
         }
     });
-    
-     /************************************************************************************
+
+    /************************************************************************************
      *                  USER EDIT PROFILE PAGE JS
      ************************************************************************************/
-    
+
     // $('.uploadFileBtn').uploadFile({
     //        onSuccess: function(data, obj){
     //             var resultJsonStr = JSON.stringify(data);
@@ -127,8 +150,8 @@
     //             $().General_ShowErrorMessage({message: errorMessage});
     //         }
     // });
-    
-    
+
+
     // /**
     //  * Update Social Post From Listing
     //  */
@@ -151,7 +174,7 @@
     //
     //     return;
     // });
- 
+
 }(jQuery));
 
 

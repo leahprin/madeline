@@ -5,6 +5,7 @@
   padding: 6px 20px 8px 20px;
   display: inline-block;
   @include text-sm;
+  @include transition(all 0.4s ease);
   &__follow {
     font-size: 13px;
     color: #FFF;
@@ -15,6 +16,14 @@
 			background: #fff;
 			color: rgb(65, 83, 90);
 		}
+    &--reverse {
+      color: rgb(65, 83, 90);
+      border: 1px solid rgb(65, 83, 90);
+      &:hover, &:active {
+        background: rgb(65, 83, 90);
+        color: #FFF;
+      }
+    }
   }
 }
 
@@ -24,6 +33,11 @@
   &__comments, &__share {
     margin-top: 12px;
     padding-left: 35px;
+    @include transition(all 0.4s ease);
+    &:hover {
+      color: rgb(65, 83, 90);
+      border: 1px solid rgb(65, 83, 90);
+    }
   }
   &__comments {
     background-image: url(../images/icons/comment-icon.svg);
@@ -39,7 +53,8 @@
 }
 
 .user-header__comments, .user-header__share {
-  height:34px;
+  height:32px;
   padding: 6px 20px 8px 20px;
   max-width:none;
+  max-height: 32px;
 }

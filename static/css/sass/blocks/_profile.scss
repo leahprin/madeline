@@ -17,11 +17,12 @@
 
 .user-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-end;
   position: relative;
   bottom: 70px;
   padding: 0 10px;
+  text-align: center;
   @include tablet {
     padding: 0;
   }
@@ -30,10 +31,12 @@
     height: 140px;
   }
   &__name {
-    font-weight: 700;
-    font-size: 13px;
-    color: #4A4A4A;
-    letter-spacing: 0px;
     text-align: center;
+    @include text-sm($font-multiplier: 0.78, $color: #4A4A4A, $font-weight: 700);
+    position: relative;
+    margin-top: 4px;
+  }
+  .user-header__share {
+    margin-top: 10px;
   }
 }

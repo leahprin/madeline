@@ -8,8 +8,10 @@
 
 	<article class="{{ cardType }}">
 		<a href="{{link}}" class="card card--{{ channel|lower }} {% if image == '' %}card__no-image{% endif %} link" {% if image is defined %}style="background-image: url({{ image }}); background-size: cover;background-position: 50% 50%;"{% endif %}>
+
 			<div class="card__overlay">
 				<div class="card__content_wrap">
+					{% include '_elements/_admin-actions.twig' %}
 					<div class="card__content">
 						<div class="card__channel-wrap">
 							<h5 class="card__channel">Channel: {{ channel }}</h5>
@@ -17,16 +19,15 @@
 						{% if cardType == 'social' %}
 							<p class="card__text">{{ text|striptags[:140] ~ '...' }}</p>
 							{# <p class="card__author">{{ network }} @{{ author }}</p> #}
+							<p class="card__read-more">By {{ author }}</p>
 						{% elseif cardType == 'article' %}
 							<h3 class="card__headline">{{ headline }}</h3>
 							<p class="card__text">{{ text|striptags[:120] ~ '...' }}</p>
-							<p class="card__author">By {{ author }}</p>
+							<div class="card__read-time_wrap">
+								<p class="card__read-time"><img src="/static/images/icons/paragraph.svg" alt="paragraph icon"> 5 min read</p>
+							</div>
 						{% endif %}
-						<p class="card__read-more">By {{ author }}</p>
 					</div>
-					{# {% if image is defined %}
-						<div class="card__image" style="background-image: url('{{ image }}'); background-size: cover; background-position: 50% 50%;"></div>
-					{% endif %} #}
 				</div>
 			</div>
 		</a>

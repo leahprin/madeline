@@ -10,7 +10,7 @@
 {% set text = article.text %}
 {% set channel = article.channel.first() %}
 {% if article.image.first().url is defined %}
-	{% set image = article.image.first().url %}
+	{% set image = article.image.first().url() %}
 {% endif %}
 {% set link = article.url %}
 {% if article.author.photoUrl is defined %}
@@ -49,6 +49,5 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set channel = article.social.blog['title'] %}
 	{% set hasMediaClass = (social.hasMedia == 'TRUE') ? 'withImage__content' : 'without__image' %}
 {% endif %}
-
 
 {% block content %}{% endblock %}

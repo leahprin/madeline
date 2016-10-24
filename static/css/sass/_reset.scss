@@ -89,6 +89,7 @@ a:hover, a:focus, a:active {
   color: $hover-color;
   text-decoration: none!important;
   transition: color 0s, background-color 0s, border-color 0s;
+  outline: none;
 }
 
 table {

@@ -131,3 +131,44 @@
 	font-family:$base-font-family;
 	letter-spacing:0.5px;
 }
+
+@mixin text-sm($letter-spacing: 0px, $color: $body-text, $font-weight: 600, $line-height: 1.35, $font-multiplier: 0.72) {
+	font-size: ($baseFontSize * $font-multiplier);
+	font-weight: $font-weight;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+	color: $color;
+}
+
+// Lovely mixins for making all your font needs delightful
+@mixin text-md($letter-spacing: -0.0125em, $color: $dark-color, $font-weight: 400, $line-height: 1.46, $font-multiplier: 1) {
+	font-size: ($baseFontSize * $font-multiplier);
+	font-weight: $font-weight;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+	color: $color;
+}
+
+@mixin text-lg($letter-spacing: -0.014em, $color: $white, $font-weight: 700, $line-height: 1.03,$font-multiplier-sm: 1.8, $font-multiplier: 2.5) {
+	font-size: ($baseFontSize * $font-multiplier-sm);
+	@include tablet {
+		font-size: ($baseFontSize * $font-multiplier);
+	}
+	font-weight: $font-weight;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+	color: $color;
+}
+
+// Helper text classes for quick bootstrapping of fonts
+.text-sm {
+	@include text-sm;
+}
+
+.text-md {
+	@include text-md;
+}
+
+.text-lg {
+	@include text-lg;
+}
