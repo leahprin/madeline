@@ -86,11 +86,3 @@ $iconfont:				FontAwesome !default;
 // Font Size
 $baseFontSize:			18px; /* ($baseFontSize * 1) + 0px; */
 $center:				center;
-
-@mixin text-sm($letter-spacing: 0, $color: $body-text) {
-  font-size: ($baseFontSize * 0.72); // 13px
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: $letter-spacing + px;
-  color: $body-text;
-}
