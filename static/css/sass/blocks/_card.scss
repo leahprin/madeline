@@ -122,6 +122,9 @@
   right: 0px;
   top: 0px;
   display: none;
+  button:last-child {
+    border-bottom: none;
+  }
   @include text-sm($color: $white, $font-multiplier: 0.68);
   &__action {
     display: flex;
