@@ -17,7 +17,7 @@
 							<h5 class="card__channel">Channel: {{ channel }}</h5>
 						</div>
 						{% if cardType == 'social' %}
-							<p class="card__text">{{ text }}</p>
+							<p class="card__text">{{ text|striptags[:140] ~ '...' }}</p>
 							{# <p class="card__author">{{ network }} @{{ author }}</p> #}
 							<p class="card__read-more">By {{ author }}</p>
 						{% elseif cardType == 'article' %}
